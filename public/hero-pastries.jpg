@@ -1,0 +1,10 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1920" height="1080" fill="#FFF8DC"/>
+  <circle cx="480" cy="540" r="120" fill="#FFD700"/>
+  <circle cx="960" cy="540" r="120" fill="#FFD700"/>
+  <circle cx="1440" cy="540" r="120" fill="#FFD700"/>
+  <circle cx="480" cy="540" r="80" fill="#FFA500"/>
+  <circle cx="960" cy="540" r="80" fill="#FFA500"/>
+  <circle cx="1440" cy="540" r="80" fill="#FFA500"/>
+  <text x="960" y="560" font-family="Arial, sans-serif" font-size="48" fill="#8B4513" text-anchor="middle">Delicious Pastries</text>
+</svg>

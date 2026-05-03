@@ -1,0 +1,10 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1920" height="1080" fill="#2F1B14"/>
+  <rect x="600" y="300" width="720" height="480" fill="#8B4513" rx="20"/>
+  <rect x="620" y="320" width="680" height="440" fill="#654321" rx="15"/>
+  <circle cx="960" cy="540" r="100" fill="#4A2C17"/>
+  <path d="M960 440 L960 640" stroke="#D2691E" stroke-width="20"/>
+  <path d="M900 500 L1020 500" stroke="#D2691E" stroke-width="20"/>
+  <path d="M900 580 L1020 580" stroke="#D2691E" stroke-width="20"/>
+  <text x="960" y="560" font-family="Arial, sans-serif" font-size="48" fill="white" text-anchor="middle">Artisan Coffee</text>
+</svg>

@@ -1,0 +1,183 @@
+{
+  "navigation": {
+    "home": "INICIO",
+    "menu": "PRODUCTOS",
+    "about": "NOSOTROS",
+    "contact": "CONTACTO",
+    "admin": "ADMIN"
+  },
+  "hero": {
+    "bread": {
+      "title": "Pan.",
+      "subtitle": "Son los Placeres Simples de la Vida"
+    },
+    "pastries": {
+      "title": "Pasteles.",
+      "subtitle": "Hechos a Mano con Amor Diariamente"
+    },
+    "coffee": {
+      "title": "Café.",
+      "subtitle": "El Acompañante Perfecto para Cada Momento"
+    }
+  },
+  "menu": {
+    "title": "Nuestro Menú",
+    "subtitle": "Productos frescos horneados con amor y los mejores ingredientes",
+    "categories": {
+      "all": "Todos",
+      "breads": "Panes",
+      "pastries": "Pasteles"
+    },
+    "addToCart": "Agregar al Carrito"
+  },
+  "onlineOrders": {
+    "title": "Pedidos en Línea",
+    "subtitle": "Pide tus productos de panadería favoritos en línea para recoger o delivery",
+    "cart": {
+      "title": "Tu Carrito",
+      "empty": "Tu carrito está vacío",
+      "total": "Total",
+      "checkout": "Proceder al Pago"
+    },
+    "orderForm": {
+      "title": "Información del Pedido",
+      "name": "Nombre",
+      "email": "Correo",
+      "phone": "Teléfono",
+      "address": "Dirección",
+      "notes": "Instrucciones Especiales",
+      "submit": "Enviar Pedido"
+    }
+  },
+  "about": {
+    "title": "Nuestra Historia",
+    "subtitle": "Creando productos de panadería artesanales con pasión y tradición desde 2010",
+    "values": {
+      "family": {
+        "title": "De Nuestra Familia a la Tuyas",
+        "description": "Lo que comenzó como una pequeña panadería familiar ha crecido hasta convertirse en una institución vecinal querida. Nuestro compromiso con la calidad, la tradición y la comunidad ha permanecido inalterado desde que abrimos nuestras puertas hace más de una década."
+      },
+      "philosophy": {
+        "title": "Nuestra Filosofía",
+        "description": "Creemos que la gran panadería es tanto un arte como una ciencia. Cada pan, cada pastel y cada tarta está elaborado con cuidado utilizando técnicas probadas y los mejores ingredientes disponibles."
+      },
+      "community": {
+        "title": "La Comunidad Primero",
+        "description": "Somos más que una panadería - somos un lugar de encuentro. Ya sea que estés comenzando tu día con café fresco y un croissant, o recogiendo un pastel especial para una celebración, estamos aquí para ser parte de los momentos de tu vida."
+      }
+    },
+    "stats": {
+      "years": "Años de Excelencia",
+      "products": "Productos Artesanales",
+      "customers": "Clientes Felices",
+      "fresh": "Fresco Diario"
+    }
+  },
+  "contact": {
+    "title": "Contáctanos",
+    "subtitle": "¡Nos encantaría saber de ti! Visítanos, llama o envíanos un mensaje.",
+    "info": {
+      "title": "Visita Nuestra Panadería",
+      "address": "123 Calle de la Panadería, Ciudad Dulce, SC 12345",
+      "phone": "(555) 123-4567",
+      "email": "hola@panaderia.com",
+      "hours": "Lunes - Sábado: 7:00 AM - 7:00 PM\nDomingo: 8:00 AM - 5:00 PM\nLas horas en días festivos pueden variar"
+    },
+    "form": {
+      "title": "Envíanos un Mensaje",
+      "name": "Nombre *",
+      "email": "Correo *",
+      "phone": "Teléfono",
+      "subject": "Asunto *",
+      "message": "Mensaje *",
+      "submit": "Enviar Mensaje"
+    }
+  },
+  "footer": {
+    "description": "Creando productos de panadería artesanales con pasión y tradición desde 2010. De nuestra familia a la tuya.",
+    "quickLinks": {
+      "title": "Enlaces Rápidos"
+    },
+    "contactInfo": {
+      "title": "Información de Contacto"
+    },
+    "hours": {
+      "title": "Horario"
+    },
+    "copyright": "Todos los derechos reservados.",
+    "address": "123 Calle de la Panadería, Ciudad Dulce, SC 12345",
+    "phone": "(555) 123-4567",
+    "email": "hola@panaderia.com"
+  },
+  "language": {
+    "switch": "EN"
+  },
+  "admin": {
+    "title": "Acceso Admin",
+    "dashboard": "Panel Admin",
+    "password": "Contraseña",
+    "passwordPlaceholder": "Ingrese su contraseña",
+    "signIn": "Iniciar Sesión",
+    "authenticating": "Autenticando...",
+    "invalidPassword": "Contraseña inválida",
+    "authFailed": "Autenticación fallida",
+    "settings": "Configuración",
+    "products": "Productos",
+    "categories": "Categorías",
+    "businessName": "Nombre del Negocio",
+    "email": "Correo Electrónico",
+    "phone": "Teléfono",
+    "address": "Dirección",
+    "mapLocation": "Ubicación del Mapa",
+    "changePassword": "Cambiar Contraseña",
+    "newPassword": "Nueva Contraseña",
+    "confirmPassword": "Confirmar Contraseña",
+    "save": "Guardar Cambios",
+    "saving": "Guardando...",
+    "saved": "¡Configuración guardada exitosamente!",
+    "error": "Error al guardar configuración",
+    "category": {
+      "title": "Categorías",
+      "addNew": "Agregar Nueva Categoría",
+      "editCategory": "Editar Categoría",
+      "name": "Nombre de Categoría",
+      "displayName": "Nombre para Mostrar",
+      "active": "Activo",
+      "saveCategory": "Guardar Categoría",
+      "savingCategory": "Guardando Categoría...",
+      "cancel": "Cancelar",
+      "delete": "Eliminar",
+      "noCategoriesFound": "No se encontraron categorías. Cree su primera categoría arriba.",
+      "noCategoriesAvailable": "No hay categorías disponibles"
+    },
+    "product": {
+      "title": "Productos",
+      "addNew": "Agregar Nuevo Producto",
+      "editProduct": "Editar Producto",
+      "name": "Nombre del Producto",
+      "nameSpanish": "Nombre (Español)",
+      "nameEnglish": "Nombre (Inglés)",
+      "description": "Descripción",
+      "descriptionSpanish": "Descripción (Español)",
+      "descriptionEnglish": "Descripción (Inglés)",
+      "price": "Precio",
+      "category": "Categoría",
+      "image": "Imagen del Producto",
+      "active": "Activo",
+      "isOffer": "Oferta Especial",
+      "saveProduct": "Guardar Producto",
+      "savingProduct": "Guardando Producto...",
+      "cancel": "Cancelar",
+      "delete": "Eliminar",
+      "deleteConfirm": "¿Está seguro de que desea eliminar este producto?",
+      "removeImage": "Eliminar Imagen",
+      "uploadImage": "Subir Imagen",
+      "uploadingImage": "Subiendo imagen...",
+      "noProductsFound": "No se encontraron productos. Cree su primer producto arriba.",
+      "imageSizeError": "El tamaño de la imagen debe ser menor a 1MB",
+      "imageTypeError": "Por favor suba un archivo de imagen válido (PNG, JPG, GIF o WebP)",
+      "imageUploadError": "Error al subir imagen. Por favor intente nuevamente.",
+      "loadingProducts": "Cargando productos..."
+    }
+  }
+}

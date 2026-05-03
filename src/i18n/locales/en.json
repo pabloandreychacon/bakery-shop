@@ -1,0 +1,183 @@
+{
+  "navigation": {
+    "home": "HOME",
+    "menu": "PRODUCTS",
+    "about": "ABOUT",
+    "contact": "CONTACT",
+    "admin": "ADMIN"
+  },
+  "hero": {
+    "bread": {
+      "title": "Bread.",
+      "subtitle": "It's the Simple Pleasures in Life"
+    },
+    "pastries": {
+      "title": "Pastries.",
+      "subtitle": "Handcrafted with Love Daily"
+    },
+    "coffee": {
+      "title": "Coffee.",
+      "subtitle": "Perfect Pair for Every Moment"
+    }
+  },
+  "menu": {
+    "title": "Our Menu",
+    "subtitle": "Freshly baked goods made with love and the finest ingredients",
+    "categories": {
+      "all": "All",
+      "breads": "Breads",
+      "pastries": "Pastries"
+    },
+    "addToCart": "Add to Cart"
+  },
+  "onlineOrders": {
+    "title": "Online Orders",
+    "subtitle": "Order your favorite baked goods online for pickup or delivery",
+    "cart": {
+      "title": "Your Cart",
+      "empty": "Your cart is empty",
+      "total": "Total",
+      "checkout": "Proceed to Checkout"
+    },
+    "orderForm": {
+      "title": "Order Information",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address",
+      "notes": "Special Instructions",
+      "submit": "Submit Order"
+    }
+  },
+  "about": {
+    "title": "Our Story",
+    "subtitle": "Crafting artisanal baked goods with passion and tradition since 2010",
+    "values": {
+      "family": {
+        "title": "From Our Family to Yours",
+        "description": "What started as a small family bakery has grown into a beloved neighborhood institution. Our commitment to quality, tradition, and community has remained unchanged since we first opened our doors over a decade ago."
+      },
+      "philosophy": {
+        "title": "Our Philosophy",
+        "description": "We believe that great baking is both an art and a science. Every loaf of bread, every pastry, and every cake is crafted with care using time-honored techniques and the finest ingredients available."
+      },
+      "community": {
+        "title": "Community First",
+        "description": "We're more than just a bakery – we're a gathering place. Whether you're starting your day with fresh coffee and a croissant, or picking up a special cake for a celebration, we're here to be part of your life's moments."
+      }
+    },
+    "stats": {
+      "years": "Years of Excellence",
+      "products": "Artisanal Products",
+      "customers": "Happy Customers",
+      "fresh": "Fresh Daily"
+    }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "We'd love to hear from you! Visit us, call, or send us a message.",
+    "info": {
+      "title": "Visit Our Bakery",
+      "address": "123 Bakery Lane, Sweet City, SC 12345",
+      "phone": "(555) 123-4567",
+      "email": "hello@bakeryshop.com",
+      "hours": "Monday - Saturday: 7:00 AM - 7:00 PM\nSunday: 8:00 AM - 5:00 PM\nHoliday hours may vary"
+    },
+    "form": {
+      "title": "Send us a Message",
+      "name": "Name *",
+      "email": "Email *",
+      "phone": "Phone",
+      "subject": "Subject *",
+      "message": "Message *",
+      "submit": "Send Message"
+    }
+  },
+  "footer": {
+    "description": "Crafting artisanal baked goods with passion and tradition since 2010. From our family to yours.",
+    "quickLinks": {
+      "title": "Quick Links"
+    },
+    "contactInfo": {
+      "title": "Contact Info"
+    },
+    "hours": {
+      "title": "Hours"
+    },
+    "copyright": "All rights reserved.",
+    "address": "123 Bakery Lane, Sweet City, SC 12345",
+    "phone": "(555) 123-4567",
+    "email": "hello@bakeryshop.com"
+  },
+  "language": {
+    "switch": "ES"
+  },
+  "admin": {
+    "title": "Admin Login",
+    "dashboard": "Admin Dashboard",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "signIn": "Sign In",
+    "authenticating": "Authenticating...",
+    "invalidPassword": "Invalid password",
+    "authFailed": "Authentication failed",
+    "settings": "Settings",
+    "products": "Products",
+    "categories": "Categories",
+    "businessName": "Business Name",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "mapLocation": "Map Location",
+    "changePassword": "Change Password",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm Password",
+    "save": "Save Changes",
+    "saving": "Saving...",
+    "saved": "Settings saved successfully!",
+    "error": "Error saving settings",
+    "category": {
+      "title": "Categories",
+      "addNew": "Add New Category",
+      "editCategory": "Edit Category",
+      "name": "Category Name",
+      "displayName": "Display Name",
+      "active": "Active",
+      "saveCategory": "Save Category",
+      "savingCategory": "Saving Category...",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "noCategoriesFound": "No categories found. Create your first category above.",
+      "noCategoriesAvailable": "No categories available"
+    },
+    "product": {
+      "title": "Products",
+      "addNew": "Add New Product",
+      "editProduct": "Edit Product",
+      "name": "Product Name",
+      "nameSpanish": "Name (Spanish)",
+      "nameEnglish": "Name (English)",
+      "description": "Description",
+      "descriptionSpanish": "Description (Spanish)",
+      "descriptionEnglish": "Description (English)",
+      "price": "Price",
+      "category": "Category",
+      "image": "Product Image",
+      "active": "Active",
+      "isOffer": "Special Offer",
+      "saveProduct": "Save Product",
+      "savingProduct": "Saving Product...",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "deleteConfirm": "Are you sure you want to delete this product?",
+      "removeImage": "Remove Image",
+      "uploadImage": "Upload Image",
+      "uploadingImage": "Uploading image...",
+      "noProductsFound": "No products found. Create your first product above.",
+      "imageSizeError": "Image size must be less than 1MB",
+      "imageTypeError": "Please upload a valid image file (PNG, JPG, GIF, or WebP)",
+      "imageUploadError": "Error uploading image. Please try again.",
+      "loadingProducts": "Loading products..."
+    }
+  }
+}

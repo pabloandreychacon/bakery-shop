@@ -6,7 +6,7 @@ import { getSettings } from '../utils/settings';
 
 export function Header() {
   const { i18n, t } = useTranslation();
-  const [businessName, setBusinessName] = useState('BAKERY SHOP');
+  const [businessName, setBusinessName] = useState('PANADERÍA ÁVILA');
   const [loading, setLoading] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);

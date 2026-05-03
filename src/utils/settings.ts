@@ -52,7 +52,7 @@ export const defaultSettings = {
   hours: 'Monday - Saturday: 8:00 AM - 8:00 PM, Sunday: 9:00 AM - 6:00 PM',
   latitude: 40.7128,
   longitude: -74.0060,
-  businessName: 'BAKERY SHOP',
+  businessName: 'PANADERÍA ÁVILA',
   onlinePassword: '$2b$10$A5ebESkKmtGBAqhO5IWQQuDEz3vMS1Txc18jK44RBzYX36XJU.6R6' // Hash for "d"
 };
 

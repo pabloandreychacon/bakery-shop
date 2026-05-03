@@ -59,9 +59,12 @@ export function Header() {
   return (
     <header style={{ backgroundColor: 'black', color: 'white', padding: '0', position: 'fixed', width: '100%', top: 0, zIndex: 50 }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', padding: '0 2rem' }}>
-        <div style={{ fontSize: '1.5rem', fontWeight: 'bold', padding: '1rem 0' }}>
-          {loading ? 'Loading...' : businessName}
-        </div>
+        <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none', color: 'white', padding: '0.5rem 0' }}>
+          <img src="/favicon.png" alt="Logo" style={{ width: '2.5rem', height: '2.5rem', objectFit: 'contain' }} />
+          <div style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>
+            {loading ? 'Loading...' : businessName}
+          </div>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav style={{ display: isMobile ? 'none' : 'flex', gap: '2rem', alignItems: 'center' }}>

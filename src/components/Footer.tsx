@@ -38,9 +38,12 @@ export function Footer() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem', marginBottom: '2rem' }}>
           {/* About Section */}
           <div>
-            <h3 style={{ fontSize: '1.25rem', fontWeight: '600', marginBottom: '1rem' }}>
-              {loading ? 'Loading...' : businessInfo?.businessName}
-            </h3>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+              <img src="/favicon.png" alt="Logo" style={{ width: '2rem', height: '2rem', objectFit: 'contain' }} />
+              <h3 style={{ fontSize: '1.25rem', fontWeight: '600', margin: 0 }}>
+                {loading ? 'Loading...' : businessInfo?.businessName}
+              </h3>
+            </div>
             <p style={{ color: '#d1d5db', marginBottom: '1rem', lineHeight: 1.6 }}>
               {t('footer.description')}
             </p>

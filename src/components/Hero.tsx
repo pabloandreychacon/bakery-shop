@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../lib/supabase';
 import { getSettings, getCurrencySymbol } from '../utils/settings';
+import { parseBilingualText } from '../utils/bilingual';
 
 interface BakeryProduct {
   id: number;
@@ -13,13 +14,14 @@ interface BakeryProduct {
 }
 
 export function Hero() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLanguage = (i18n.language || 'es') as 'es' | 'en';
   const [bakeryProducts, setBakeryProducts] = useState<BakeryProduct[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     loadOfferProducts();
-  }, []);
+  }, [currentLanguage]);
 
   const loadOfferProducts = async () => {
     try {
@@ -42,8 +44,8 @@ export function Hero() {
       // Convert products to BakeryProduct format
       const products: BakeryProduct[] = (data || []).map(product => ({
         id: product.Id,
-        title: product.Name,
-        subtitle: product.Description,
+        title: parseBilingualText(product.Name || '', currentLanguage),
+        subtitle: parseBilingualText(product.Description || '', currentLanguage),
         image: product.ImageUrl || "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1920&h=1080&fit=crop&crop=entropy&q=80",
         price: `${getCurrencySymbol(settings?.currencyCode || 'CRC')}${product.Price.toFixed(2)}`
       }));

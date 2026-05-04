@@ -2,11 +2,11 @@ import { useTranslation } from 'react-i18next';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { getSettings } from '../utils/settings';
+import { getSettings, type BusinessSettings } from '../utils/settings';
 
 export function Footer() {
   const { t } = useTranslation();
-  const [businessInfo, setBusinessInfo] = useState(null);
+  const [businessInfo, setBusinessInfo] = useState<BusinessSettings | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export function Footer() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
               <img src="/favicon.png" alt="Logo" style={{ width: '2rem', height: '2rem', objectFit: 'contain' }} />
               <h3 style={{ fontSize: '1.25rem', fontWeight: '600', margin: 0 }}>
-                {loading ? 'Loading...' : businessInfo?.businessName}
+                {loading ? 'Loading...' : businessInfo?.businessName || 'PANADERÍA ÁVILA'}
               </h3>
             </div>
             <p style={{ color: '#d1d5db', marginBottom: '1rem', lineHeight: 1.6 }}>
@@ -92,15 +92,15 @@ export function Footer() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                 <MapPin style={{ width: '1.25rem', height: '1.25rem', color: '#9ca3af' }} />
-                <span style={{ color: '#d1d5db' }}>{loading ? 'Loading...' : businessInfo?.address}</span>
+                <span style={{ color: '#d1d5db' }}>{loading ? 'Loading...' : businessInfo?.address || '123 Bakery Lane, Sweet City, SC 12345'}</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                 <Phone style={{ width: '1.25rem', height: '1.25rem', color: '#9ca3af' }} />
-                <span style={{ color: '#d1d5db' }}>{loading ? 'Loading...' : businessInfo?.phone}</span>
+                <span style={{ color: '#d1d5db' }}>{loading ? 'Loading...' : businessInfo?.phone || '(555) 123-4567'}</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                 <Mail style={{ width: '1.25rem', height: '1.25rem', color: '#9ca3af' }} />
-                <span style={{ color: '#d1d5db' }}>{loading ? 'Loading...' : businessInfo?.email}</span>
+                <span style={{ color: '#d1d5db' }}>{loading ? 'Loading...' : businessInfo?.email || 'hello@bakeryshop.com'}</span>
               </div>
             </div>
           </div>
@@ -122,7 +122,7 @@ export function Footer() {
         <div style={{ borderTop: '1px solid #374151', marginTop: '3rem', paddingTop: '2rem' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center' }} className="md:flex-row md:justify-between">
             <div style={{ color: '#9ca3af', fontSize: '0.875rem' }} className="md:mb-0">
-              © {new Date().getFullYear()} {loading ? 'Loading...' : businessInfo.businessName}. {t('footer.copyright', 'All rights reserved.')}.
+              © {new Date().getFullYear()} {loading ? 'Loading...' : (businessInfo?.businessName || 'PANADERÍA ÁVILA')}. {t('footer.copyright', 'All rights reserved.')}.
             </div>
           </div>
         </div>

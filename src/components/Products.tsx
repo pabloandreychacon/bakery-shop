@@ -39,7 +39,6 @@ export function Menu() {
   const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
   const [products, setProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
-  const [loading, setLoading] = useState(true);
   const [currencyCode, setCurrencyCode] = useState('$');
 
   useEffect(() => {
@@ -52,7 +51,6 @@ export function Menu() {
   }, [selectedCategory]);
 
   const loadProducts = async () => {
-    setLoading(true);
     try {
       const settings = await getSettings();
       setCurrencyCode(settings?.currencyCode || 'CRC'); // Usar currencyCode de Settings con default CRC
@@ -60,7 +58,7 @@ export function Menu() {
       let query = supabase
         .from('Products')
         .select('*')
-        .eq('IdBusiness', settings.id)
+        .eq('IdBusiness', settings?.id)
         .eq('Active', true)
         .order('Name');
 
@@ -74,8 +72,6 @@ export function Menu() {
       setProducts(data || []);
     } catch (err) {
       console.error('Error loading products:', err);
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -85,7 +81,7 @@ export function Menu() {
       const { data, error } = await supabase
         .from('Categories')
         .select('*')
-        .eq('IdBusiness', settings.id)
+        .eq('IdBusiness', settings?.id)
         .eq('Active', true)
         .order('Name');
 

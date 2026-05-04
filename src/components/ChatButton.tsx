@@ -1,9 +1,9 @@
 import { Phone } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import { getSettings } from '../utils/settings';
+import { getSettings, type BusinessSettings } from '../utils/settings';
 
 export function ChatButton() {
-  const [businessInfo, setBusinessInfo] = useState(null);
+  const [businessInfo, setBusinessInfo] = useState<BusinessSettings | null>(null);
   const message = 'Hello! I would like to inquire about your bakery products.';
 
   useEffect(() => {
@@ -20,8 +20,8 @@ export function ChatButton() {
   }, []);
 
   const handleWhatsAppClick = () => {
-    if (businessInfo?.Phone) {
-      const whatsappUrl = `https://wa.me/${businessInfo.Phone.replace(/[^\d]/g, '')}?text=${encodeURIComponent(message)}`;
+    if (businessInfo?.phone) {
+      const whatsappUrl = `https://wa.me/${businessInfo.phone.replace(/[^\d]/g, '')}?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
     }
   };

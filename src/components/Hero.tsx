@@ -30,7 +30,7 @@ export function Hero() {
       const { data, error } = await supabase
         .from('Products')
         .select('*')
-        .eq('IdBusiness', settings.id)
+        .eq('IdBusiness', settings?.id)
         .eq('IsOffer', true)
         .eq('Active', true)
         .order('Name');
@@ -154,23 +154,23 @@ export function Hero() {
               zIndex: isCurrent ? 1 : 0
             }}
           >
-              <div
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '100%',
-                  height: '100%',
-                  backgroundImage: `url(${product.image})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  backgroundRepeat: 'no-repeat'
-                }}
-                role="img"
-                aria-label={product.title}
-              >
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.3), transparent, rgba(0,0,0,0.5))' }}></div>
-              </div>
+            <div
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                backgroundImage: `url(${product.image})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
+              }}
+              role="img"
+              aria-label={product.title}
+            >
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.3), transparent, rgba(0,0,0,0.5))' }}></div>
+            </div>
           </div>
         );
       })}

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Package, Plus, Edit2, Trash2, Upload, X } from 'lucide-react';
+import { Plus, Edit2, Trash2, Upload, X } from 'lucide-react';
 import { supabase } from '../../lib/supabase';
 import { defaultSettings, getSettings, getCurrencySymbol } from '../../utils/settings';
 import { joinBilingualText, splitBilingualText } from '../../utils/bilingual';
@@ -173,7 +173,7 @@ export function AdminProducts({ t }: AdminProductsProps) {
     setImagePreview(product.ImageUrl);
     const nameParts = splitBilingualText(product.Name || '');
     const descParts = splitBilingualText(product.Description || '');
-    
+
     setFormData({
       NameEs: nameParts.es,
       NameEn: nameParts.en,
@@ -252,7 +252,7 @@ export function AdminProducts({ t }: AdminProductsProps) {
       const fileName = `${Date.now()}_${Math.random().toString(36).substring(7)}.${fileExt}`;
       const settings = await getSettings();
       const productId = editingProduct?.Id || Date.now();
-      const filePath = `${settings.id}/${productId}/${fileName}`;
+      const filePath = `${settings?.id}/${productId}/${fileName}`;
 
       // Upload to Supabase Storage using postore bucket
       const { error: uploadError } = await supabase.storage
@@ -703,7 +703,7 @@ export function AdminProducts({ t }: AdminProductsProps) {
                   <Edit2 style={{ width: '1rem', height: '1rem' }} />
                 </button>
                 <button
-                  onClick={() => handleDelete(product.Id)}
+                  onClick={() => product.Id && handleDelete(product.Id)}
                   style={{
                     padding: '0.25rem 0.5rem',
                     backgroundColor: '#dc2626',

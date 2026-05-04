@@ -1,8 +1,6 @@
 import { useState } from 'react';
-import { Lock, Settings, Tag, Package } from 'lucide-react';
+import { Lock, Settings, Tag } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import bcrypt from 'bcryptjs';
-import { getSettings } from '../utils/settings';
 import { AdminSettings } from './admin/AdminSettings';
 import { AdminCategories } from './admin/AdminCategories';
 import { AdminProducts } from './admin/AdminProducts';
@@ -152,7 +150,7 @@ export function Admin() {
                     transition: 'all 0.2s'
                   }}
                 >
-                  <Package style={{ width: '1rem', height: '1rem', display: 'inline', marginRight: '0.5rem' }} />
+                  <Tag style={{ width: '1rem', height: '1rem', display: 'inline', marginRight: '0.5rem' }} />
                   {t('admin.products')}
                 </button>
               </nav>

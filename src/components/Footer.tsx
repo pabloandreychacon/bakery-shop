@@ -88,30 +88,30 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 style={{ fontSize: '1.25rem', fontWeight: '600', marginBottom: '1rem' }}>{t('footer.contactInfo.title')}</h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <MapPin style={{ width: '1.25rem', height: '1.25rem', color: '#9ca3af' }} />
-                <span style={{ color: '#d1d5db' }}>{loading ? 'Loading...' : businessInfo?.address || '123 Bakery Lane, Sweet City, SC 12345'}</span>
+            <h3 className="text-xl font-semibold mb-4">{t('footer.contactInfo.title')}</h3>
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center gap-3">
+                <MapPin className="w-5 h-5 text-gray-400" />
+                <span className="text-gray-300">{loading ? 'Loading...' : businessInfo?.address || '123 Bakery Lane, Sweet City, SC 12345'}</span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <Phone style={{ width: '1.25rem', height: '1.25rem', color: '#9ca3af' }} />
-                <span style={{ color: '#d1d5db' }}>{loading ? 'Loading...' : businessInfo?.phone || '(555) 123-4567'}</span>
+              <div className="flex items-center gap-3">
+                <Phone className="w-5 h-5 text-gray-400" />
+                <span className="text-gray-300">{loading ? 'Loading...' : businessInfo?.phone || '(555) 123-4567'}</span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <Mail style={{ width: '1.25rem', height: '1.25rem', color: '#9ca3af' }} />
-                <span style={{ color: '#d1d5db' }}>{loading ? 'Loading...' : businessInfo?.email || 'hello@bakeryshop.com'}</span>
+              <div className="flex items-center gap-3">
+                <Mail className="w-5 h-5 text-gray-400" />
+                <span className="text-gray-300">{loading ? 'Loading...' : businessInfo?.email || 'hello@bakeryshop.com'}</span>
               </div>
             </div>
           </div>
 
           {/* Hours */}
           <div>
-            <h3 style={{ fontSize: '1.25rem', fontWeight: '600', marginBottom: '1rem' }}>{t('footer.hours.title', 'Hours')}</h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <Clock style={{ width: '1.25rem', height: '1.25rem', color: '#9ca3af' }} />
-                <div style={{ color: '#d1d5db', whiteSpace: 'pre-line' }}>
+            <h3 className="text-xl font-semibold mb-4">{t('footer.hours.title', 'Hours')}</h3>
+            <div className="flex flex-col gap-2">
+              <div className="flex items-center gap-3">
+                <Clock className="w-5 h-5 text-gray-400" />
+                <div className="text-gray-300 whitespace-pre-line">
                   {t('contact.info.hours', 'Monday - Saturday: 7:00 AM - 7:00 PM\nSunday: 8:00 AM - 5:00 PM\nHoliday hours may vary')}
                 </div>
               </div>
@@ -119,9 +119,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div style={{ borderTop: '1px solid #374151', marginTop: '3rem', paddingTop: '2rem' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center' }} className="md:flex-row md:justify-between">
-            <div style={{ color: '#9ca3af', fontSize: '0.875rem' }} className="md:mb-0">
+        <div className="border-t border-gray-700 mt-12 pt-8">
+          <div className="flex flex-col gap-4 items-center md:flex-row md:justify-between">
+            <div className="text-gray-400 text-sm md:mb-0">
               © {new Date().getFullYear()} {loading ? 'Loading...' : (businessInfo?.businessName || 'PANADERÍA ÁVILA')}. {t('footer.copyright', 'All rights reserved.')}.
             </div>
           </div>

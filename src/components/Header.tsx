@@ -48,85 +48,53 @@ export function Header() {
   };
 
   return (
-    <header style={{ backgroundColor: 'black', color: 'white', padding: '0', position: 'fixed', width: '100%', top: 0, zIndex: 50 }}>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', padding: '0 2rem' }}>
-        <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none', color: 'white', padding: '0.5rem 0' }}>
-          <img src="/favicon.png" alt="Logo" style={{ width: '2.5rem', height: '2.5rem', objectFit: 'contain' }} />
-          <div style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>
+    <header className="bg-black text-white p-0 fixed w-full top-0 z-50">
+      <div className="flex items-center justify-between w-full px-8">
+        <Link to="/" className="flex items-center gap-3 no-underline text-white py-2">
+          <img src="/favicon.png" alt="Logo" className="w-10 h-10 object-contain" />
+          <div className="text-2xl font-bold">
             {loading ? 'Loading...' : businessName}
           </div>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav style={{ display: isMobile ? 'none' : 'flex', gap: '2rem', alignItems: 'center' }}>
+        <nav className={`hidden md:flex gap-8 items-center`}>
           <Link
             to="/"
-            style={{ textDecoration: 'none', color: 'white', fontWeight: '500', fontSize: '1rem', transition: 'color 0.3s ease' }}
-            onMouseOver={(e) => e.currentTarget.style.color = '#f59e0b'}
-            onMouseOut={(e) => e.currentTarget.style.color = 'white'}
+            className="no-underline text-white font-medium text-base transition-colors duration-300 hover:text-amber-500"
           >
             {t('navigation.home')}
           </Link>
           <Link
             to="/products"
-            style={{ textDecoration: 'none', color: 'white', fontWeight: '500', fontSize: '1rem', transition: 'color 0.3s ease' }}
-            onMouseOver={(e) => e.currentTarget.style.color = '#f59e0b'}
-            onMouseOut={(e) => e.currentTarget.style.color = 'white'}
+            className="no-underline text-white font-medium text-base transition-colors duration-300 hover:text-amber-500"
           >
             {t('navigation.menu')}
           </Link>
           <Link
             to="/about"
-            style={{ textDecoration: 'none', color: 'white', fontWeight: '500', fontSize: '1rem', transition: 'color 0.3s ease' }}
-            onMouseOver={(e) => e.currentTarget.style.color = '#f59e0b'}
-            onMouseOut={(e) => e.currentTarget.style.color = 'white'}
+            className="no-underline text-white font-medium text-base transition-colors duration-300 hover:text-amber-500"
           >
             {t('navigation.about')}
           </Link>
           <Link
             to="/contact"
-            style={{ textDecoration: 'none', color: 'white', fontWeight: '500', fontSize: '1rem', transition: 'color 0.3s ease' }}
-            onMouseOver={(e) => e.currentTarget.style.color = '#f59e0b'}
-            onMouseOut={(e) => e.currentTarget.style.color = 'white'}
+            className="no-underline text-white font-medium text-base transition-colors duration-300 hover:text-amber-500"
           >
             {t('navigation.contact')}
           </Link>
           <Link
             to="/admin"
-            style={{ textDecoration: 'none', color: 'white', fontWeight: '500', fontSize: '1rem', transition: 'color 0.3s ease' }}
-            onMouseOver={(e) => e.currentTarget.style.color = '#f59e0b'}
-            onMouseOut={(e) => e.currentTarget.style.color = 'white'}
+            className="no-underline text-white font-medium text-base transition-colors duration-300 hover:text-amber-500"
           >
             {t('navigation.admin')}
           </Link>
 
           <button
             onClick={toggleLanguage}
-            style={{
-              backgroundColor: '#f59e0b',
-              color: 'white',
-              border: 'none',
-              borderRadius: '50%',
-              width: '2.5rem',
-              height: '2.5rem',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              cursor: 'pointer',
-              fontSize: '0.875rem',
-              fontWeight: 'bold',
-              transition: 'all 0.3s ease'
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.backgroundColor = '#d97706';
-              e.currentTarget.style.transform = 'scale(1.1)';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.backgroundColor = '#f59e0b';
-              e.currentTarget.style.transform = 'scale(1)';
-            }}
+            className="bg-amber-500 text-white border-none rounded-full w-10 h-10 flex items-center justify-center cursor-pointer text-sm font-bold transition-all duration-300 hover:bg-amber-600 hover:scale-110"
           >
-            <Globe style={{ width: '1rem', height: '1rem' }} />
+            <Globe className="w-4 h-4" />
             {i18n.language === 'en' ? 'ES' : 'EN'}
           </button>
         </nav>
@@ -134,93 +102,52 @@ export function Header() {
         {/* Mobile Menu Button */}
         <button
           onClick={toggleMobileMenu}
-          style={{
-            display: isMobile ? 'block' : 'none',
-            backgroundColor: 'transparent',
-            border: 'none',
-            color: 'white',
-            cursor: 'pointer',
-            padding: '0.5rem'
-          }}
+          className={`md:hidden bg-transparent border-none text-white cursor-pointer p-2 ${isMobile ? 'block' : 'hidden'}`}
         >
           {isMobileMenuOpen ? (
-            <X style={{ width: '1.5rem', height: '1.5rem' }} />
+            <X className="w-6 h-6" />
           ) : (
-            <Menu style={{ width: '1.5rem', height: '1.5rem' }} />
+            <Menu className="w-6 h-6" />
           )}
         </button>
       </div>
 
       {/* Mobile Menu */}
       <div
-        style={{
-          display: isMobile && isMobileMenuOpen ? 'flex' : 'none',
-          position: 'absolute',
-          top: '100%',
-          left: 0,
-          right: 0,
-          backgroundColor: 'black',
-          flexDirection: 'column',
-          padding: '1rem 2rem',
-          gap: '1rem',
-          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-          zIndex: 40
-        }}
+        className={`${isMobile && isMobileMenuOpen ? 'flex' : 'hidden'} absolute top-full left-0 right-0 bg-black flex-col p-4 gap-4 shadow-lg z-40 md:hidden`}
       >
         <Link
           to="/"
-          style={{ textDecoration: 'none', color: 'white', fontWeight: '500', fontSize: '1rem', padding: '0.5rem 0', borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}
+          className="no-underline text-white font-medium text-base py-2 border-b border-gray-800"
         >
           {t('navigation.home')}
         </Link>
         <Link
           to="/products"
-          style={{ textDecoration: 'none', color: 'white', fontWeight: '500', fontSize: '1rem', padding: '0.5rem 0', borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}
+          className="no-underline text-white font-medium text-base py-2 border-b border-gray-800"
         >
           {t('navigation.menu')}
         </Link>
         <Link
           to="/about"
-          style={{ textDecoration: 'none', color: 'white', fontWeight: '500', fontSize: '1rem', padding: '0.5rem 0', borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}
+          className="no-underline text-white font-medium text-base py-2 border-b border-gray-800"
         >
           {t('navigation.about')}
         </Link>
         <Link
           to="/contact"
-          style={{ textDecoration: 'none', color: 'white', fontWeight: '500', fontSize: '1rem', padding: '0.5rem 0', borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}
+          className="no-underline text-white font-medium text-base py-2 border-b border-gray-800"
         >
           {t('navigation.contact')}
         </Link>
         <Link
           to="/admin"
-          style={{ textDecoration: 'none', color: 'white', fontWeight: '500', fontSize: '1rem', padding: '0.5rem 0', borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}
+          className="no-underline text-white font-medium text-base py-2 border-b border-gray-800"
         >
           {t('navigation.admin')}
         </Link>
 
-        <button
-          onClick={toggleLanguage}
-          style={{
-            backgroundColor: '#f59e0b',
-            color: 'white',
-            border: 'none',
-            borderRadius: '50%',
-            width: '2.5rem',
-            height: '2.5rem',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            cursor: 'pointer',
-            fontSize: '0.875rem',
-            fontWeight: 'bold',
-            transition: 'all 0.3s ease',
-            marginTop: '0.5rem'
-          }}
-        >
-          <Globe style={{ width: '1rem', height: '1rem' }} />
-          {i18n.language === 'en' ? 'ES' : 'EN'}
-        </button>
       </div>
-    </header >
+    </header>
   );
 }

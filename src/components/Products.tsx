@@ -121,61 +121,26 @@ export function Menu() {
 
 
   return (
-    <section id="menu" style={{
-      position: 'relative',
-      minHeight: '100vh',
-      backgroundImage: `url(${mixImage})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      backgroundAttachment: 'fixed',
-      width: '100vw',
-      left: 0,
-      right: 0
-    }}>
-      <div style={{
-        position: 'absolute',
-        inset: 0,
-        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.88) 100%)',
-        zIndex: 1
-      }}></div>
-      <div style={{
-        position: 'relative',
-        zIndex: 2,
-        padding: '5rem 5%',
-        maxWidth: 'none',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center'
-      }}>
-        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-          <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 'bold', marginBottom: '1rem', color: '#1f2937' }}>{t('menu.title')}</h2>
-          <p style={{ fontSize: '1.125rem', color: '#6b7280', maxWidth: '42rem', margin: '0 auto', lineHeight: 1.6 }}>
+    <section id="menu" className="relative min-h-screen bg-cover bg-center bg-no-repeat bg-fixed w-screen left-0 right-0" style={{ backgroundImage: `url(${mixImage})` }}>
+      <div className="absolute inset-0 bg-gradient-to-br from-white/92 to-white/88 z-10"></div>
+      <div className="relative z-20 p-20 max-w-none flex flex-col justify-center">
+        <div className="text-center mb-12">
+          <h2 className="text-[clamp(2rem,5vw,3rem)] font-bold mb-4 text-gray-800">{t('menu.title')}</h2>
+          <p className="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
             {t('menu.subtitle')}
           </p>
         </div>
 
-        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '3rem' }}>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center' }}>
+        <div className="flex justify-center mb-12">
+          <div className="flex flex-wrap gap-4 justify-center">
             {filterCategories.map((category, index) => (
               <button
                 key={category.id !== null && category.id !== undefined ? `category-${category.id}` : `category-${index}`}
                 onClick={() => setSelectedCategory(category.id)}
-                style={{
-                  padding: '0.75rem 1.5rem',
-                  borderRadius: '9999px',
-                  border: 'none',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease',
-                  backgroundColor: selectedCategory === category.id ? 'black' : '#e5e7eb',
-                  color: selectedCategory === category.id ? 'white' : '#374151'
-                }}
-                onMouseOver={(e) => {
-                  if (selectedCategory !== category.id) e.currentTarget.style.backgroundColor = '#d1d5db';
-                }}
-                onMouseOut={(e) => {
-                  if (selectedCategory !== category.id) e.currentTarget.style.backgroundColor = '#e5e7eb';
-                }}
+                className={`px-6 py-3 rounded-full border-none cursor-pointer transition-all duration-300 text-sm font-medium ${selectedCategory === category.id
+                  ? 'bg-amber-500 text-white shadow-amber-500/30'
+                  : 'bg-white text-gray-700 shadow-sm hover:bg-gray-100 hover:-translate-y-0.5'
+                  } shadow-md`}
               >
                 {category.name}
               </button>
@@ -183,17 +148,15 @@ export function Menu() {
           </div>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredItems.map(item => (
-            <div key={item.id} style={{ backgroundColor: 'white', borderRadius: '0.5rem', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)', transition: 'box-shadow 0.3s ease' }}
-              onMouseOver={(e) => e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)'}
-              onMouseOut={(e) => e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)'}>
+            <div key={item.id} className="bg-white rounded-lg shadow-md transition-shadow duration-300 hover:shadow-xl">
               {item.image && (
-                <div style={{ height: '12rem', backgroundColor: '#e5e7eb', borderRadius: '0.5rem 0.5rem 0 0', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+                <div className="h-48 bg-gray-200 rounded-t-lg flex items-center justify-center overflow-hidden">
                   <img
                     src={item.image}
                     alt={item.name}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'none' }}
+                    className="w-full h-full object-cover object-center hidden"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
                       target.style.display = 'none';
@@ -212,12 +175,12 @@ export function Menu() {
                   />
                 </div>
               )}
-              <div style={{ padding: '1.5rem' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1rem' }}>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#1f2937', flex: 1 }}>{item.name}</h3>
-                  <span style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'black', marginLeft: '1rem' }}>{item.price}</span>
+              <div className="p-6">
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="text-xl font-semibold text-gray-800 flex-1">{item.name}</h3>
+                  <span className="text-2xl font-bold text-black ml-4">{item.price}</span>
                 </div>
-                <p style={{ color: '#6b7280', lineHeight: 1.6 }}>{item.description}</p>
+                <p className="text-gray-500 leading-relaxed">{item.description}</p>
               </div>
             </div>
           ))}

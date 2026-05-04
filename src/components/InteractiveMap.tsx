@@ -35,9 +35,7 @@ export function InteractiveMap() {
       <div className="h-64">
         <iframe
           src={`https://www.google.com/maps?q=${latitude},${longitude}&output=embed&z=16`}
-          width="100%"
-          height="100%"
-          style={{ border: 0 }}
+          className="w-full h-full border-0"
           allowFullScreen
           loading="lazy"
           title={businessInfo?.businessName || 'Panadería Ávila Location'}

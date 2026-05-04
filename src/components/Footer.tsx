@@ -126,6 +126,13 @@ export function Footer() {
             </div>
           </div>
         </div>
+
+        {/* qr code */}
+        <div className="border-t border-gray-700 mt-12 pt-8">
+          <div className="flex justify-center">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=https%3A%2F%2Favilapanaderia.netlify.app%2F&qzone=1&margin=0&size=400x400&ecc=L" alt="QR Code" className="w-32 h-32 object-contain" />
+          </div>
+        </div>
       </div>
     </footer>
   );

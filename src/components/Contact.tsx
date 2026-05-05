@@ -7,11 +7,11 @@ import emailjs from '@emailjs/browser';
 import { defaultSettings } from '../utils/settings';
 
 interface ContactSettings {
-  mapLocation?: string;
-  businessName?: string;
-  address?: string;
-  phone?: string;
-  email?: string;
+  MapLocation?: string;
+  BusinessName?: string;
+  Address?: string;
+  Phone?: string;
+  Email?: string;
   latitude?: number;
   longitude?: number;
 }
@@ -33,11 +33,16 @@ export function Contact() {
     const fetchSettings = async () => {
       const { data } = await supabase
         .from('Settings')
-        .select('mapLocation, businessName, address, phone, email')
+        .select('MapLocation, BusinessName, Address, Phone, Email')
         .eq('Id', defaultSettings.id)
         .single();
 
-      setSettings(data);
+      if (data?.MapLocation) {
+        const [lat, lng] = data.MapLocation.split(',').map(Number);
+        setSettings({ ...data, latitude: lat, longitude: lng });
+      } else {
+        setSettings(data);
+      }
       setLoading(false);
     };
 
@@ -52,7 +57,7 @@ export function Contact() {
       emailjs.init("L7o6hZUmFJQ_Jbqu0");
 
       await emailjs.send("service_s481rtv", "template_771ecr6", {
-        to_email: settings?.email || 'panaderiaavila@gmail.com',
+        to_email: settings?.Email || 'panaderiaavila@gmail.com',
         from_name: formData.name,
         from_email: formData.email,
         subject: `New Contact Form Submission from ${formData.name}`,
@@ -128,7 +133,7 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="font-bold text-lg text-gray-900 leading-relaxed">
-                    {loading ? 'Loading...' : settings?.address}
+                    {loading ? 'Loading...' : settings?.Address}
                   </p>
                 </div>
               </div>
@@ -138,7 +143,7 @@ export function Contact() {
                   <Phone className="w-6 h-6 text-orange-700" />
                 </div>
                 <div>
-                  <p className="font-bold text-lg text-gray-900 leading-relaxed">{loading ? 'Loading...' : settings?.phone}</p>
+                  <p className="font-bold text-lg text-gray-900 leading-relaxed">{loading ? 'Loading...' : settings?.Phone}</p>
                 </div>
               </div>
 
@@ -147,7 +152,7 @@ export function Contact() {
                   <Mail className="w-6 h-6 text-yellow-700" />
                 </div>
                 <div>
-                  <p className="font-bold text-lg text-gray-900 leading-relaxed">{loading ? 'Loading...' : settings?.email}</p>
+                  <p className="font-bold text-lg text-gray-900 leading-relaxed">{loading ? 'Loading...' : settings?.Email}</p>
                 </div>
               </div>
 

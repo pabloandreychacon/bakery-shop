@@ -4,49 +4,73 @@ import { useTranslation } from 'react-i18next';
 interface SEOProps {
   title?: string;
   description?: string;
+  keywords?: string;
+  image?: string;
+  url?: string;
 }
 
-export function SEO({ title, description }: SEOProps) {
+export function SEO({
+  title,
+  description,
+  keywords,
+  image = '/favicon.png',
+  url,
+}: SEOProps) {
   const { i18n } = useTranslation();
 
   useEffect(() => {
-    // Default title from translations or hardcoded
     const baseTitle = 'Panadería Ávila';
     const finalTitle = title ? `${title} | ${baseTitle}` : baseTitle;
+    const defaultDescription = 'Creando productos de panadería artesanales con pasión y tradición desde 2010';
+    const baseUrl = 'https://avilapanaderia.netlify.app';
+
     document.title = finalTitle;
 
-    // Meta description
-    if (description) {
-      let metaDescription = document.querySelector('meta[name="description"]');
-      if (metaDescription) {
-        metaDescription.setAttribute('content', description);
-      } else {
-        metaDescription = document.createElement('meta');
-        metaDescription.setAttribute('name', 'description');
-        metaDescription.setAttribute('content', description);
-        document.head.appendChild(metaDescription);
+    const setMeta = (name: string, content: string, isProperty = false) => {
+      const attr = isProperty ? 'property' : 'name'
+      let meta = document.head.querySelector(`meta[${attr}="${name}"]`)
+      if (!meta) {
+        meta = document.createElement('meta')
+        meta.setAttribute(attr, name)
+        document.head.appendChild(meta)
       }
+      meta.setAttribute('content', content)
     }
 
-    // Set HTML lang attribute
-    document.documentElement.lang = i18n.language || 'es';
+    const finalDescription = description || defaultDescription;
+    setMeta('description', finalDescription);
+    if (keywords) setMeta('keywords', keywords);
+    setMeta('og:title', finalTitle, true);
+    setMeta('og:description', finalDescription, true);
+    setMeta('og:image', image, true);
+    setMeta('og:url', url || baseUrl, true);
+    setMeta('og:type', 'website', true);
+    setMeta('twitter:title', finalTitle);
+    setMeta('twitter:description', finalDescription);
+    setMeta('twitter:card', 'summary_large_image');
 
-  }, [title, description, i18n.language]);
+    let canonical = document.head.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', url || baseUrl);
+
+    document.documentElement.lang = i18n.language || 'es';
+  }, [title, description, keywords, image, url, i18n.language]);
 
   return null;
 }
 
-/**
- * Structured Data for Local Business
- */
 export function LocalBusinessSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Bakery",
     "name": "Panadería Ávila",
-    "image": "https://bakery-shop.example.com/logo.png",
+    "image": "https://avilapanaderia.netlify.app/logo.png",
     "@id": "",
-    "url": "https://bakery-shop.example.com",
+    "url": "https://avilapanaderia.netlify.app",
     "telephone": "+506 8888 8888",
     "address": {
       "@type": "PostalAddress",

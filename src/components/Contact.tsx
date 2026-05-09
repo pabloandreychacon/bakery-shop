@@ -87,33 +87,9 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" style={{
-      position: 'relative',
-      minHeight: '100vh',
-      backgroundImage: `url(${breadImage})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      backgroundAttachment: 'fixed',
-      width: '100vw',
-      left: 0,
-      right: 0
-    }}>
-      <div style={{
-        position: 'absolute',
-        inset: 0,
-        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.88) 100%)',
-        zIndex: 1
-      }}></div>
-      <div style={{
-        position: 'relative',
-        zIndex: 2,
-        padding: '5rem 5%',
-        maxWidth: 'none',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center'
-      }}>
+    <section id="contact" className="relative min-h-screen bg-cover bg-center bg-no-repeat bg-fixed w-screen left-0 right-0" style={{ backgroundImage: `url(${breadImage})` }}>
+      <div className="absolute inset-0 z-10" style={{ background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.88) 100%)' }}></div>
+      <div className="relative z-20 px-[5%] py-20 max-w-none flex flex-col justify-center">
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">{t('contact.title')}</h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
@@ -177,7 +153,7 @@ export function Contact() {
                     src={settings && settings.latitude && settings.longitude ? `https://www.google.com/maps?q=${settings.latitude},${settings.longitude}&output=embed&z=16` : "https://www.google.com/maps?q=10.01565866280609,-84.10092306022774&output=embed&z=16"}
                     width="100%"
                     height="300"
-                    style={{ border: 0, borderRadius: '8px' }}
+                    className="border-0 rounded-lg"
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"

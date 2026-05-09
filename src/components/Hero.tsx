@@ -98,37 +98,24 @@ export function Hero() {
   // Show loading state or fallback if no products
   if (loading || bakeryProducts.length === 0 || !currentProduct) {
     return (
-      <section id="home" style={{ position: 'relative', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', backgroundColor: '#f5f5f5', width: '100vw', left: 0, right: 0, marginTop: '0' }}>
-        <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1920&h=1080&fit=crop&crop=entropy&q=80)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.3), transparent, rgba(0,0,0,0.5))' }}></div>
+      <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden bg-gray-100 w-screen left-0 right-0 mt-0">
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1920&h=1080&fit=crop&crop=entropy&q=80)' }}>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50"></div>
         </div>
-        <div style={{ position: 'relative', zIndex: 10, textAlign: 'center', color: 'white', padding: '0 5%' }}>
-          <h1 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', fontWeight: 900, marginBottom: '1rem', lineHeight: 1, color: 'white', textShadow: '3px 3px 6px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.5)' }}>
+        <div className="relative z-10 text-center text-white px-[5%]">
+          <h1 className="font-black mb-4 leading-none text-white" style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', textShadow: '3px 3px 6px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.5)' }}>
             {loading ? 'Loading...' : t('hero.bread.title')}
           </h1>
-          <p style={{ fontSize: 'clamp(1.25rem, 3vw, 2rem)', fontWeight: 400, marginBottom: '2rem', lineHeight: 1.4, textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+          <p className="font-normal mb-8 leading-relaxed" style={{ fontSize: 'clamp(1.25rem, 3vw, 2rem)', textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
             {loading ? 'Loading special offers...' : t('hero.bread.subtitle')}
           </p>
         </div>
-        <div style={{ position: 'absolute', bottom: '2rem', left: '50%', transform: 'translateX(-50%)', zIndex: 20 }}>
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20">
           <button
             onClick={scrollDown}
-            style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.9)',
-              border: 'none',
-              borderRadius: '50%',
-              width: '3rem',
-              height: '3rem',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              cursor: 'pointer',
-              transition: 'all 0.3s ease'
-            }}
-            onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'white'}
-            onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.9)'}
+            className="bg-white/90 hover:bg-white rounded-full w-12 h-12 flex items-center justify-center transition-all duration-300"
           >
-            <ChevronDown style={{ width: '1.5rem', height: '1.5rem', color: '#374151' }} />
+            <ChevronDown className="w-6 h-6 text-gray-700" />
           </button>
         </div>
       </section>
@@ -136,54 +123,36 @@ export function Hero() {
   }
 
   return (
-    <section id="home" style={{ position: 'relative', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', backgroundColor: '#f5f5f5', width: '100vw', left: 0, right: 0, marginTop: '0' }}>
+    <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden bg-gray-100 w-screen left-0 right-0 mt-0">
       {bakeryProducts.map((product, index) => {
         const isCurrent = index === currentIndex;
 
         return (
           <div
             key={product.id}
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              opacity: isCurrent ? 1 : 0,
-              transition: 'opacity 1s ease-in-out',
-              zIndex: isCurrent ? 1 : 0
-            }}
+            className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${isCurrent ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
           >
             <div
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                backgroundImage: `url(${product.image})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat'
-              }}
+              className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+              style={{ backgroundImage: `url(${product.image})` }}
               role="img"
               aria-label={product.title}
             >
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.3), transparent, rgba(0,0,0,0.5))' }}></div>
+              <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50"></div>
             </div>
           </div>
         );
       })}
 
-      <div style={{ position: 'relative', zIndex: 10, textAlign: 'left', color: 'white', paddingLeft: '5%', paddingRight: '5%', width: '100%' }}>
-        <div style={{ maxWidth: '800px' }}>
-          <h1 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', fontWeight: 900, marginBottom: '1rem', lineHeight: 1, color: 'white', textShadow: '3px 3px 6px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.5)' }}>
+      <div className="relative z-10 text-left text-white px-[5%] w-full">
+        <div className="max-w-[800px]">
+          <h1 className="font-black mb-4 leading-none text-white" style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', textShadow: '3px 3px 6px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.5)' }}>
             {currentProduct.title}
           </h1>
-          <p style={{ fontSize: 'clamp(1.25rem, 3vw, 2rem)', fontWeight: 400, marginBottom: '1rem', lineHeight: 1.4, textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
+          <p className="font-normal mb-4 leading-relaxed" style={{ fontSize: 'clamp(1.25rem, 3vw, 2rem)', textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
             {currentProduct.subtitle}
           </p>
-          <div style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', fontWeight: 700, color: '#fbbf24', textShadow: '2px 2px 4px rgba(0,0,0,0.8)', marginBottom: '2rem' }}>
+          <div className="font-bold text-yellow-400 mb-8" style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
             {currentProduct.price}
           </div>
         </div>
@@ -193,92 +162,24 @@ export function Hero() {
         <>
           <button
             onClick={prevSlide}
-            style={{
-              position: 'absolute',
-              left: '1rem',
-              top: '75%',
-              transform: 'translateY(-50%)',
-              backgroundColor: 'rgba(255, 255, 255, 0.9)',
-              border: 'none',
-              borderRadius: '50%',
-              width: '3rem',
-              height: '3rem',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              cursor: 'pointer',
-              zIndex: 20,
-              transition: 'all 0.3s ease',
-              color: 'black'
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.backgroundColor = 'white';
-              e.currentTarget.style.transform = 'translateY(-50%) scale(1.1)';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
-              e.currentTarget.style.transform = 'translateY(-50%) scale(1)';
-            }}
+            className="absolute left-4 top-3/4 -translate-y-1/2 bg-white/90 hover:bg-white hover:scale-110 rounded-full w-12 h-12 flex items-center justify-center z-20 transition-all duration-300 text-black"
           >
-            <ChevronLeft style={{ width: '1.5rem', height: '1.5rem' }} />
+            <ChevronLeft className="w-6 h-6" />
           </button>
 
           <button
             onClick={nextSlide}
-            style={{
-              position: 'absolute',
-              right: '1rem',
-              top: '75%',
-              transform: 'translateY(-50%)',
-              backgroundColor: 'rgba(255, 255, 255, 0.9)',
-              border: 'none',
-              borderRadius: '50%',
-              width: '3rem',
-              height: '3rem',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              cursor: 'pointer',
-              zIndex: 20,
-              transition: 'all 0.3s ease',
-              color: 'black'
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.backgroundColor = 'white';
-              e.currentTarget.style.transform = 'translateY(-50%) scale(1.1)';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
-              e.currentTarget.style.transform = 'translateY(-50%) scale(1)';
-            }}
+            className="absolute right-4 top-3/4 -translate-y-1/2 bg-white/90 hover:bg-white hover:scale-110 rounded-full w-12 h-12 flex items-center justify-center z-20 transition-all duration-300 text-black"
           >
-            <ChevronRight style={{ width: '1.5rem', height: '1.5rem' }} />
+            <ChevronRight className="w-6 h-6" />
           </button>
 
-          <div style={{ position: 'absolute', bottom: '2rem', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '0.5rem', zIndex: 20 }}>
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-20">
             {bakeryProducts.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                style={{
-                  width: '0.5rem',
-                  height: '0.5rem',
-                  borderRadius: '50%',
-                  border: 'none',
-                  backgroundColor: index === currentIndex ? 'white' : 'rgba(255, 255, 255, 0.5)',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease'
-                }}
-                onMouseOver={(e) => {
-                  if (index !== currentIndex) {
-                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
-                  }
-                }}
-                onMouseOut={(e) => {
-                  if (index !== currentIndex) {
-                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.5)';
-                  }
-                }}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentIndex ? 'bg-white' : 'bg-white/50 hover:bg-white/80'}`}
               />
             ))}
           </div>
@@ -287,20 +188,9 @@ export function Hero() {
 
       <button
         onClick={scrollDown}
-        style={{
-          position: 'absolute',
-          bottom: '2rem',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          color: 'black',
-          zIndex: 20,
-          border: 'none',
-          backgroundColor: 'transparent',
-          cursor: 'pointer',
-          animation: 'bounce 2s infinite'
-        }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-black z-20 animate-bounce"
       >
-        <ChevronDown style={{ width: '2rem', height: '2rem' }} />
+        <ChevronDown className="w-8 h-8" />
       </button>
     </section>
   );

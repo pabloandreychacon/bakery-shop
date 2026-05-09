@@ -317,15 +317,15 @@ export function AdminProducts({ t }: AdminProductsProps) {
 
   return (
     <div>
-      <div style={{ marginBottom: '2rem' }}>
-        <h3 style={{ fontSize: '1.125rem', fontWeight: '600', marginBottom: '1rem', color: '#111827' }}>
+      <div className="mb-8">
+        <h3 className="text-lg font-semibold mb-4 text-gray-900">
           {editingProduct ? t('admin.product.editProduct') : t('admin.product.addNew')}
         </h3>
 
-        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem' }}>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             <div>
-              <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', marginBottom: '0.25rem', color: '#374151' }}>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 {t('admin.product.nameSpanish')}
               </label>
               <input
@@ -333,36 +333,24 @@ export function AdminProducts({ t }: AdminProductsProps) {
                 required
                 value={formData.NameEs}
                 onChange={(e) => setFormData({ ...formData, NameEs: e.target.value })}
-                style={{
-                  width: '100%',
-                  padding: '0.5rem',
-                  border: '1px solid #d1d5db',
-                  borderRadius: '0.375rem',
-                  fontSize: '0.875rem'
-                }}
+                className="w-full p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
 
             <div>
-              <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', marginBottom: '0.25rem', color: '#374151' }}>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 {t('admin.product.nameEnglish')}
               </label>
               <input
                 type="text"
                 value={formData.NameEn}
                 onChange={(e) => setFormData({ ...formData, NameEn: e.target.value })}
-                style={{
-                  width: '100%',
-                  padding: '0.5rem',
-                  border: '1px solid #d1d5db',
-                  borderRadius: '0.375rem',
-                  fontSize: '0.875rem'
-                }}
+                className="w-full p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
 
             <div>
-              <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', marginBottom: '0.25rem', color: '#374151' }}>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 {t('admin.product.price')}
               </label>
               <input
@@ -371,31 +359,19 @@ export function AdminProducts({ t }: AdminProductsProps) {
                 required
                 value={formData.Price}
                 onChange={(e) => setFormData({ ...formData, Price: e.target.value })}
-                style={{
-                  width: '100%',
-                  padding: '0.5rem',
-                  border: '1px solid #d1d5db',
-                  borderRadius: '0.375rem',
-                  fontSize: '0.875rem'
-                }}
+                className="w-full p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
 
 
             <div>
-              <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', marginBottom: '0.25rem', color: '#374151' }}>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 {t('admin.product.category')}
               </label>
               <select
                 value={formData.CategoryId}
                 onChange={(e) => setFormData({ ...formData, CategoryId: e.target.value })}
-                style={{
-                  width: '100%',
-                  padding: '0.5rem',
-                  border: '1px solid #d1d5db',
-                  borderRadius: '0.375rem',
-                  fontSize: '0.875rem'
-                }}
+                className="w-full p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
               >
                 {categories.length === 0 ? (
                   <option key="no-categories" value="">{t('admin.category.noCategoriesAvailable')}</option>
@@ -410,9 +386,9 @@ export function AdminProducts({ t }: AdminProductsProps) {
             </div>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', marginBottom: '0.25rem', color: '#374151' }}>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 {t('admin.product.descriptionSpanish')}
               </label>
               <textarea
@@ -420,57 +396,37 @@ export function AdminProducts({ t }: AdminProductsProps) {
                 value={formData.DescriptionEs}
                 onChange={(e) => setFormData({ ...formData, DescriptionEs: e.target.value })}
                 rows={3}
-                style={{
-                  width: '100%',
-                  padding: '0.5rem',
-                  border: '1px solid #d1d5db',
-                  borderRadius: '0.375rem',
-                  fontSize: '0.875rem',
-                  resize: 'vertical'
-                }}
+                className="w-full p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 resize-y"
               />
             </div>
             <div>
-              <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', marginBottom: '0.25rem', color: '#374151' }}>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 {t('admin.product.descriptionEnglish')}
               </label>
               <textarea
                 value={formData.DescriptionEn}
                 onChange={(e) => setFormData({ ...formData, DescriptionEn: e.target.value })}
                 rows={3}
-                style={{
-                  width: '100%',
-                  padding: '0.5rem',
-                  border: '1px solid #d1d5db',
-                  borderRadius: '0.375rem',
-                  fontSize: '0.875rem',
-                  resize: 'vertical'
-                }}
+                className="w-full p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 resize-y"
               />
             </div>
           </div>
 
           <div>
-            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', marginBottom: '0.25rem', color: '#374151' }}>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
               Product Image (Max 1MB)
             </label>
 
             {imagePreview || formData.ImageUrl ? (
-              <div style={{ marginBottom: '1rem' }}>
+              <div className="mb-4">
                 {/* Debug info */}
-                <div style={{ fontSize: '0.75rem', color: '#666', marginBottom: '0.5rem' }}>
+                <div className="text-xs text-gray-500 mb-2">
                   Debug: imagePreview={imagePreview ? 'set' : 'empty'}, formData.ImageUrl={formData.ImageUrl ? 'set' : 'empty'}
                 </div>
                 <img
                   src={imagePreview || formData.ImageUrl}
                   alt="Product preview"
-                  style={{
-                    width: '200px',
-                    height: '200px',
-                    objectFit: 'cover',
-                    borderRadius: '0.375rem',
-                    border: '1px solid #d1d5db'
-                  }}
+                  className="w-48 h-48 object-cover rounded-md border border-gray-300"
                   onError={(e) => {
                     console.error('Image load error:', e);
                     console.error('Failed to load image URL:', imagePreview || formData.ImageUrl);
@@ -482,40 +438,19 @@ export function AdminProducts({ t }: AdminProductsProps) {
                 <button
                   type="button"
                   onClick={removeImage}
-                  style={{
-                    marginTop: '0.5rem',
-                    padding: '0.25rem 0.5rem',
-                    backgroundColor: '#dc2626',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '0.25rem',
-                    fontSize: '0.75rem',
-                    cursor: 'pointer',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.25rem'
-                  }}
+                  className="mt-2 px-3 py-1.5 bg-red-600 text-white rounded text-sm hover:bg-red-700 flex items-center gap-1 transition-colors"
                 >
-                  <X style={{ width: '1rem', height: '1rem' }} />
+                  <X className="w-4 h-4" />
                   Remove Image
                 </button>
               </div>
             ) : (
-              <div
-                style={{
-                  border: '2px dashed #d1d5db',
-                  borderRadius: '0.375rem',
-                  padding: '2rem',
-                  textAlign: 'center',
-                  backgroundColor: '#f9fafb',
-                  position: 'relative'
-                }}
-              >
-                <Upload style={{ width: '2rem', height: '2rem', color: '#9ca3af', margin: '0 auto 0.5rem' }} />
-                <p style={{ color: '#6b7280', fontSize: '0.875rem', marginBottom: '1rem' }}>
+              <div className="border-2 border-dashed border-gray-300 rounded-md p-8 text-center bg-gray-50 relative hover:bg-gray-100 transition-colors">
+                <Upload className="w-8 h-8 text-gray-400 mx-auto mb-2" />
+                <p className="text-gray-500 text-sm mb-2">
                   Click to upload or drag and drop
                 </p>
-                <p style={{ color: '#9ca3af', fontSize: '0.75rem' }}>
+                <p className="text-gray-400 text-xs">
                   PNG, JPG, GIF, WebP up to 1MB
                 </p>
                 <input
@@ -523,70 +458,50 @@ export function AdminProducts({ t }: AdminProductsProps) {
                   accept="image/jpeg,image/jpg,image/png,image/gif,image/webp"
                   onChange={handleImageUpload}
                   disabled={uploadingImage}
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    opacity: 0,
-                    width: '100%',
-                    height: '100%',
-                    cursor: uploadingImage ? 'not-allowed' : 'pointer'
-                  }}
+                  className={`absolute inset-0 w-full h-full opacity-0 ${uploadingImage ? 'cursor-not-allowed' : 'cursor-pointer'}`}
                 />
               </div>
             )}
 
             {uploadingImage && (
-              <div style={{ marginTop: '0.5rem', color: '#2563eb', fontSize: '0.875rem' }}>
+              <div className="mt-2 text-blue-600 text-sm font-medium">
                 Uploading image...
               </div>
             )}
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <div className="flex items-center gap-2">
             <input
               type="checkbox"
               id="Active"
               checked={formData.Active}
               onChange={(e) => setFormData({ ...formData, Active: e.target.checked })}
-              style={{ width: '1rem', height: '1rem' }}
+              className="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
             />
-            <label htmlFor="Active" style={{ fontSize: '0.875rem', color: '#374151' }}>
+            <label htmlFor="Active" className="text-sm text-gray-700">
               Active
             </label>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <div className="flex items-center gap-2">
             <input
               type="checkbox"
               id="IsOffer"
               checked={formData.IsOffer}
               onChange={(e) => setFormData({ ...formData, IsOffer: e.target.checked })}
-              style={{ width: '1rem', height: '1rem' }}
+              className="w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
             />
-            <label htmlFor="IsOffer" style={{ fontSize: '0.875rem', color: '#374151' }}>
+            <label htmlFor="IsOffer" className="text-sm text-gray-700">
               Is Offer
             </label>
           </div>
 
-          <div style={{ display: 'flex', gap: '0.5rem' }}>
+          <div className="flex gap-3 mt-2">
             <button
               type="submit"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                padding: '0.5rem 1rem',
-                border: 'none',
-                borderRadius: '0.375rem',
-                fontSize: '0.875rem',
-                fontWeight: '500',
-                color: 'white',
-                backgroundColor: '#2563eb',
-                cursor: 'pointer'
-              }}
+              className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-sm font-medium transition-colors"
             >
-              {editingProduct ? <Edit2 style={{ width: '1rem', height: '1rem' }} /> : <Plus style={{ width: '1rem', height: '1rem' }} />}
+              {editingProduct ? <Edit2 className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
               {editingProduct ? 'Update Product' : 'Add Product'}
             </button>
 
@@ -594,16 +509,7 @@ export function AdminProducts({ t }: AdminProductsProps) {
               <button
                 type="button"
                 onClick={resetForm}
-                style={{
-                  padding: '0.5rem 1rem',
-                  border: '1px solid #d1d5db',
-                  borderRadius: '0.375rem',
-                  fontSize: '0.875rem',
-                  fontWeight: '500',
-                  color: '#374151',
-                  backgroundColor: 'white',
-                  cursor: 'pointer'
-                }}
+                className="px-4 py-2 border border-gray-300 text-gray-700 bg-white hover:bg-gray-50 rounded-md text-sm font-medium transition-colors"
               >
                 Cancel
               </button>
@@ -613,108 +519,67 @@ export function AdminProducts({ t }: AdminProductsProps) {
       </div>
 
       <div>
-        <h3 style={{ fontSize: '1.125rem', fontWeight: '600', marginBottom: '1rem', color: '#111827' }}>
+        <h3 className="text-lg font-semibold mb-4 text-gray-900">
           Products ({products.length})
         </h3>
 
-        <div style={{ display: 'grid', gap: '1rem' }}>
+        <div className="grid gap-4">
           {products.map((product) => (
-            <div key={product.Id} style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'flex-start',
-              padding: '1rem',
-              border: '1px solid #e5e7eb',
-              borderRadius: '0.5rem',
-              backgroundColor: 'white'
-            }}>
-              <div style={{ flex: 1 }}>
+            <div key={product.Id} className="flex justify-between items-start p-4 border border-gray-200 rounded-lg bg-white shadow-sm hover:shadow-md transition-shadow">
+              <div className="flex-1">
                 {product.ImageUrl && (
                   <img
                     src={product.ImageUrl}
                     alt={product.Name}
-                    style={{
-                      width: '60px',
-                      height: '60px',
-                      objectFit: 'cover',
-                      borderRadius: '0.375rem',
-                      marginBottom: '0.5rem'
-                    }}
+                    className="w-16 h-16 object-cover rounded-md mb-3 border border-gray-100"
                   />
                 )}
-                <h4 style={{ margin: '0 0 0.5rem 0', fontSize: '1rem', fontWeight: '600' }}>
+                <h4 className="text-base font-semibold m-0 mb-1 text-gray-900">
                   {splitBilingualText(product.Name).es || product.Name}
                   {splitBilingualText(product.Name).en && (
-                    <span style={{ display: 'block', fontSize: '0.75rem', fontWeight: '400', color: '#6b7280' }}>
+                    <span className="block text-xs font-normal text-gray-500 mt-0.5">
                       {splitBilingualText(product.Name).en}
                     </span>
                   )}
                 </h4>
-                <p style={{ margin: '0 0 0.5rem 0', fontSize: '0.875rem', color: '#6b7280' }}>
+                <p className="m-0 mb-2 text-sm text-gray-600">
                   {splitBilingualText(product.Description).es || product.Description}
                   {splitBilingualText(product.Description).en && (
-                    <span style={{ display: 'block', fontSize: '0.75rem', color: '#9ca3af' }}>
+                    <span className="block text-xs text-gray-400 mt-0.5">
                       {splitBilingualText(product.Description).en}
                     </span>
                   )}
                 </p>
-                <p style={{ margin: '0', fontSize: '0.875rem', fontWeight: '500', color: '#111827' }}>{getCurrencySymbol(currencyCode)}{product.Price.toFixed(2)}</p>
-                <div style={{ marginTop: '0.5rem' }}>
+                <p className="m-0 text-sm font-bold text-gray-900">
+                  {getCurrencySymbol(currencyCode)}{product.Price.toFixed(2)}
+                </p>
+                <div className="mt-3 flex flex-wrap gap-2">
                   {product.IsOffer && (
-                    <span style={{
-                      display: 'inline-block',
-                      padding: '0.125rem 0.5rem',
-                      backgroundColor: '#fef3c7',
-                      color: '#92400e',
-                      fontSize: '0.75rem',
-                      borderRadius: '0.25rem',
-                      marginRight: '0.5rem'
-                    }}>
+                    <span className="inline-block px-2 py-0.5 bg-yellow-100 text-yellow-800 text-xs font-medium rounded">
                       Offer
                     </span>
                   )}
                   {!product.Active && (
-                    <span style={{
-                      display: 'inline-block',
-                      padding: '0.125rem 0.5rem',
-                      backgroundColor: '#fee2e2',
-                      color: '#991b1b',
-                      fontSize: '0.75rem',
-                      borderRadius: '0.25rem'
-                    }}>
+                    <span className="inline-block px-2 py-0.5 bg-red-100 text-red-800 text-xs font-medium rounded">
                       Inactive
                     </span>
                   )}
                 </div>
               </div>
-              <div style={{ display: 'flex', gap: '0.5rem' }}>
+              <div className="flex gap-2 ml-4">
                 <button
                   onClick={() => handleEdit(product)}
-                  style={{
-                    padding: '0.25rem 0.5rem',
-                    backgroundColor: '#2563eb',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '0.25rem',
-                    fontSize: '0.75rem',
-                    cursor: 'pointer'
-                  }}
+                  className="p-2 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md transition-colors"
+                  title="Edit Product"
                 >
-                  <Edit2 style={{ width: '1rem', height: '1rem' }} />
+                  <Edit2 className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => product.Id && handleDelete(product.Id)}
-                  style={{
-                    padding: '0.25rem 0.5rem',
-                    backgroundColor: '#dc2626',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '0.25rem',
-                    fontSize: '0.75rem',
-                    cursor: 'pointer'
-                  }}
+                  className="p-2 bg-red-50 text-red-600 hover:bg-red-100 rounded-md transition-colors"
+                  title="Delete Product"
                 >
-                  <Trash2 style={{ width: '1rem', height: '1rem' }} />
+                  <Trash2 className="w-4 h-4" />
                 </button>
               </div>
             </div>

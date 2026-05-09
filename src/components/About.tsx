@@ -4,34 +4,9 @@ import mixImage from '../assets/mix.png';
 export function About() {
   const { t } = useTranslation();
   return (
-    <section id="about" style={{
-      position: 'relative',
-      minHeight: '100vh',
-      backgroundImage: `url(${mixImage})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      backgroundAttachment: 'fixed',
-      width: '100vw',
-      left: 0,
-      right: 0
-    }}>
-      <div style={{
-        position: 'absolute',
-        inset: 0,
-        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.88) 100%)',
-        zIndex: 1
-      }}></div>
-      <div style={{
-        position: 'relative',
-        zIndex: 2,
-        padding: '5.5rem 5% 12rem 5%',
-        maxWidth: '1200px',
-        margin: '0 auto',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center'
-      }}>
+    <section id="about" className="relative min-h-screen bg-cover bg-center bg-no-repeat bg-fixed w-screen left-0 right-0" style={{ backgroundImage: `url(${mixImage})` }}>
+      <div className="absolute inset-0 z-10" style={{ background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.88) 100%)' }}></div>
+      <div className="relative z-20 px-[5%] pt-[5.5rem] pb-48 max-w-7xl mx-auto flex flex-col justify-center">
         <div className="text-center mb-24">
           <h2 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">{t('about.title')}</h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">

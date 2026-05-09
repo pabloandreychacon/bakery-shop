@@ -29,28 +29,9 @@ export function ChatButton() {
   return (
     <button
       onClick={handleWhatsAppClick}
-      style={{
-        position: 'fixed',
-        bottom: '1.5rem',
-        right: '1.5rem',
-        width: '3.5rem',
-        height: '3.5rem',
-        backgroundColor: '#25D366',
-        color: 'white',
-        borderRadius: '50%',
-        boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        transition: 'all 0.3s ease',
-        zIndex: 40,
-        border: 'none',
-        cursor: 'pointer'
-      }}
-      onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#128C7E'}
-      onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#25D366'}
+      className="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 z-40 border-none cursor-pointer"
     >
-      <Phone style={{ width: '1.5rem', height: '1.5rem' }} />
+      <Phone className="w-6 h-6" />
     </button>
   );
 }

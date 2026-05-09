@@ -33,56 +33,36 @@ export function Footer() {
   };
 
   return (
-    <footer style={{ backgroundColor: 'black', color: 'white', padding: '3rem 0', width: '100vw', left: 0, right: 0 }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem', marginBottom: '2rem' }}>
+    <footer className="bg-black text-white py-12 w-screen">
+      <div className="max-w-7xl mx-auto px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* About Section */}
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-              <img src="/favicon.png" alt="Logo" style={{ width: '2rem', height: '2rem', objectFit: 'contain' }} />
-              <h3 style={{ fontSize: '1.25rem', fontWeight: '600', margin: 0 }}>
+            <div className="flex items-center gap-3 mb-4">
+              <img src="/favicon.png" alt="Logo" className="w-8 h-8 object-contain" />
+              <h3 className="text-xl font-semibold m-0">
                 {loading ? 'Loading...' : businessInfo?.businessName || 'PANADERÍA ÁVILA'}
               </h3>
             </div>
-            <p style={{ color: '#d1d5db', marginBottom: '1rem', lineHeight: 1.6 }}>
+            <p className="text-gray-300 mb-4 leading-relaxed">
               {t('footer.description')}
             </p>
-            <div style={{ display: 'flex', gap: '0.75rem' }}>
-              <button style={{ width: '2.5rem', height: '2.5rem', backgroundColor: '#374151', color: 'white', borderRadius: '50%', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background-color 0.3s ease' }}
-                onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#4b5563'}
-                onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#374151'}>f</button>
-              <button style={{ width: '2.5rem', height: '2.5rem', backgroundColor: '#374151', color: 'white', borderRadius: '50%', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background-color 0.3s ease' }}
-                onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#4b5563'}
-                onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#374151'}>t</button>
-              <button style={{ width: '2.5rem', height: '2.5rem', backgroundColor: '#374151', color: 'white', borderRadius: '50%', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background-color 0.3s ease' }}
-                onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#4b5563'}
-                onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#374151'}>i</button>
-              <button style={{ width: '2.5rem', height: '2.5rem', backgroundColor: '#374151', color: 'white', borderRadius: '50%', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background-color 0.3s ease' }}
-                onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#4b5563'}
-                onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#374151'}>y</button>
+            <div className="flex gap-3">
+              <button className="w-10 h-10 bg-gray-700 hover:bg-gray-600 text-white rounded-full flex items-center justify-center transition-colors duration-300">f</button>
+              <button className="w-10 h-10 bg-gray-700 hover:bg-gray-600 text-white rounded-full flex items-center justify-center transition-colors duration-300">t</button>
+              <button className="w-10 h-10 bg-gray-700 hover:bg-gray-600 text-white rounded-full flex items-center justify-center transition-colors duration-300">i</button>
+              <button className="w-10 h-10 bg-gray-700 hover:bg-gray-600 text-white rounded-full flex items-center justify-center transition-colors duration-300">y</button>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 style={{ fontSize: '1.25rem', fontWeight: '600', marginBottom: '1rem' }}>{t('footer.quickLinks.title')}</h3>
-            <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              <li><Link to="/" style={{ color: '#d1d5db', textDecoration: 'none', transition: 'color 0.3s ease' }}
-                onMouseOver={(e) => e.currentTarget.style.color = 'white'}
-                onMouseOut={(e) => e.currentTarget.style.color = '#d1d5db'}
-                onClick={(e) => handleFooterNavClick(e, 'home')}>{t('navigation.home')}</Link></li>
-              <li><Link to="/" style={{ color: '#d1d5db', textDecoration: 'none', transition: 'color 0.3s ease' }}
-                onMouseOver={(e) => e.currentTarget.style.color = 'white'}
-                onMouseOut={(e) => e.currentTarget.style.color = '#d1d5db'}
-                onClick={(e) => handleFooterNavClick(e, 'menu')}>{t('navigation.menu')}</Link></li>
-              <li><Link to="/" style={{ color: '#d1d5db', textDecoration: 'none', transition: 'color 0.3s ease' }}
-                onMouseOver={(e) => e.currentTarget.style.color = 'white'}
-                onMouseOut={(e) => e.currentTarget.style.color = '#d1d5db'}
-                onClick={(e) => handleFooterNavClick(e, 'about')}>{t('navigation.about')}</Link></li>
-              <li><Link to="/" style={{ color: '#d1d5db', textDecoration: 'none', transition: 'color 0.3s ease' }}
-                onMouseOver={(e) => e.currentTarget.style.color = 'white'}
-                onMouseOut={(e) => e.currentTarget.style.color = '#d1d5db'}
-                onClick={(e) => handleFooterNavClick(e, 'contact')}>{t('navigation.contact')}</Link></li>
+            <h3 className="text-xl font-semibold mb-4">{t('footer.quickLinks.title')}</h3>
+            <ul className="list-none p-0 flex flex-col gap-2">
+              <li><Link to="/" className="text-gray-300 hover:text-white transition-colors duration-300" onClick={(e) => handleFooterNavClick(e, 'home')}>{t('navigation.home')}</Link></li>
+              <li><Link to="/" className="text-gray-300 hover:text-white transition-colors duration-300" onClick={(e) => handleFooterNavClick(e, 'menu')}>{t('navigation.menu')}</Link></li>
+              <li><Link to="/" className="text-gray-300 hover:text-white transition-colors duration-300" onClick={(e) => handleFooterNavClick(e, 'about')}>{t('navigation.about')}</Link></li>
+              <li><Link to="/" className="text-gray-300 hover:text-white transition-colors duration-300" onClick={(e) => handleFooterNavClick(e, 'contact')}>{t('navigation.contact')}</Link></li>
             </ul>
           </div>
 

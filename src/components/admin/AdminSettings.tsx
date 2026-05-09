@@ -84,81 +84,57 @@ export function AdminSettings({ t }: AdminSettingsProps) {
   }
 
   return (
-    <form onSubmit={handleSave} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+    <form onSubmit={handleSave} className="flex flex-col gap-6">
       <div>
-        <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', marginBottom: '0.5rem', color: '#374151' }}>
+        <label className="block text-sm font-medium mb-2 text-gray-700">
           {t('admin.businessName')}
         </label>
         <input
           type="text"
           value={settings.businessName}
           onChange={(e) => setSettings({ ...settings, businessName: e.target.value })}
-          style={{
-            width: '100%',
-            padding: '0.75rem',
-            border: '1px solid #d1d5db',
-            borderRadius: '0.375rem',
-            fontSize: '0.875rem'
-          }}
+          className="w-full p-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
         />
       </div>
 
       <div>
-        <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', marginBottom: '0.5rem', color: '#374151' }}>
+        <label className="block text-sm font-medium mb-2 text-gray-700">
           {t('admin.email')}
         </label>
         <input
           type="email"
           value={settings.email}
           onChange={(e) => setSettings({ ...settings, email: e.target.value })}
-          style={{
-            width: '100%',
-            padding: '0.75rem',
-            border: '1px solid #d1d5db',
-            borderRadius: '0.375rem',
-            fontSize: '0.875rem'
-          }}
+          className="w-full p-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
         />
       </div>
 
       <div>
-        <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', marginBottom: '0.5rem', color: '#374151' }}>
+        <label className="block text-sm font-medium mb-2 text-gray-700">
           {t('admin.phone')}
         </label>
         <input
           type="tel"
           value={settings.phone}
           onChange={(e) => setSettings({ ...settings, phone: e.target.value })}
-          style={{
-            width: '100%',
-            padding: '0.75rem',
-            border: '1px solid #d1d5db',
-            borderRadius: '0.375rem',
-            fontSize: '0.875rem'
-          }}
+          className="w-full p-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
         />
       </div>
 
       <div>
-        <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', marginBottom: '0.5rem', color: '#374151' }}>
+        <label className="block text-sm font-medium mb-2 text-gray-700">
           {t('admin.address')}
         </label>
         <input
           type="text"
           value={settings.address}
           onChange={(e) => setSettings({ ...settings, address: e.target.value })}
-          style={{
-            width: '100%',
-            padding: '0.75rem',
-            border: '1px solid #d1d5db',
-            borderRadius: '0.375rem',
-            fontSize: '0.875rem'
-          }}
+          className="w-full p-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
         />
       </div>
 
       <div>
-        <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', marginBottom: '0.5rem', color: '#374151' }}>
+        <label className="block text-sm font-medium mb-2 text-gray-700">
           {t('admin.mapLocation')}
         </label>
         <input
@@ -171,85 +147,55 @@ export function AdminSettings({ t }: AdminSettingsProps) {
             }
           }}
           placeholder="latitude,longitude"
-          style={{
-            width: '100%',
-            padding: '0.75rem',
-            border: '1px solid #d1d5db',
-            borderRadius: '0.375rem',
-            fontSize: '0.875rem'
-          }}
+          className="w-full p-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
         />
       </div>
 
-      <div style={{ borderTop: '1px solid #e5e7eb', paddingTop: '1.5rem' }}>
-        <h3 style={{ fontSize: '1rem', fontWeight: '600', marginBottom: '1rem', color: '#111827' }}>
+      <div className="border-t border-gray-200 pt-6">
+        <h3 className="text-base font-semibold mb-4 text-gray-900">
           {t('admin.changePassword')}
         </h3>
 
-        <div style={{ marginBottom: '1rem' }}>
-          <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', marginBottom: '0.5rem', color: '#374151' }}>
+        <div className="mb-4">
+          <label className="block text-sm font-medium mb-2 text-gray-700">
             {t('admin.newPassword')}
           </label>
-          <div style={{ position: 'relative' }}>
+          <div className="relative">
             <input
               type={showPassword ? 'text' : 'password'}
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
-              style={{
-                width: '100%',
-                padding: '0.75rem',
-                border: '1px solid #d1d5db',
-                borderRadius: '0.375rem',
-                fontSize: '0.875rem',
-                paddingRight: '2.5rem'
-              }}
+              className="w-full p-3 pr-10 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
             />
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              style={{
-                position: 'absolute',
-                right: '0.75rem',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-                color: '#6b7280'
-              }}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 focus:outline-none"
             >
-              {showPassword ? <EyeOff style={{ width: '1.25rem', height: '1.25rem' }} /> : <Eye style={{ width: '1.25rem', height: '1.25rem' }} />}
+              {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
             </button>
           </div>
         </div>
 
-        <div style={{ marginBottom: '1rem' }}>
-          <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', marginBottom: '0.5rem', color: '#374151' }}>
+        <div className="mb-4">
+          <label className="block text-sm font-medium mb-2 text-gray-700">
             {t('admin.confirmPassword')}
           </label>
           <input
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-            style={{
-              width: '100%',
-              padding: '0.75rem',
-              border: '1px solid #d1d5db',
-              borderRadius: '0.375rem',
-              fontSize: '0.875rem'
-            }}
+            className="w-full p-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
           />
         </div>
       </div>
 
       {message && (
-        <div style={{
-          padding: '0.75rem',
-          borderRadius: '0.375rem',
-          fontSize: '0.875rem',
-          backgroundColor: message.includes('success') ? '#d1fae5' : '#fee2e2',
-          color: message.includes('success') ? '#065f46' : '#991b1b'
-        }}>
+        <div className={`p-3 rounded-md text-sm ${
+          message.includes('success') || message.includes('Guardado') || message.includes('Saved')
+            ? 'bg-green-100 text-green-800' 
+            : 'bg-red-100 text-red-800'
+        }`}>
           {message}
         </div>
       )}
@@ -257,23 +203,11 @@ export function AdminSettings({ t }: AdminSettingsProps) {
       <button
         type="submit"
         disabled={saving}
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '0.5rem',
-          padding: '0.75rem 1.5rem',
-          border: 'none',
-          borderRadius: '0.375rem',
-          fontSize: '0.875rem',
-          fontWeight: '500',
-          color: 'white',
-          backgroundColor: saving ? '#9ca3af' : '#2563eb',
-          cursor: saving ? 'not-allowed' : 'pointer',
-          transition: 'background-color 0.2s'
-        }}
+        className={`flex items-center justify-center gap-2 px-6 py-3 border border-transparent rounded-md text-sm font-medium text-white transition-colors duration-200 ${
+          saving ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700 cursor-pointer'
+        }`}
       >
-        <Save style={{ width: '1rem', height: '1rem' }} />
+        <Save className="w-4 h-4" />
         {saving ? t('admin.saving') : t('admin.save')}
       </button>
     </form>

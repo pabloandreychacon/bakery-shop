@@ -8,7 +8,7 @@ interface AdminCategoriesProps {
 }
 
 interface Category {
-  id: number;
+  Id: number;
   Name: string;
   DisplayName: string;
   Active: boolean;
@@ -61,7 +61,7 @@ export function AdminCategories({ t }: AdminCategoriesProps) {
             DisplayName: formData.DisplayName,
             Active: formData.Active
           })
-          .eq('id', editingCategory.id);
+          .eq('Id', editingCategory.Id);
 
         if (error) throw error;
       } else {
@@ -106,7 +106,7 @@ export function AdminCategories({ t }: AdminCategoriesProps) {
       const { error } = await supabase
         .from('Categories')
         .delete()
-        .eq('id', id);
+        .eq('Id', id);
 
       if (error) throw error;
       await loadCategories();
@@ -124,7 +124,7 @@ export function AdminCategories({ t }: AdminCategoriesProps) {
 
   if (loading && categories.length === 0) {
     return (
-      <div style={{ textAlign: 'center', padding: '2rem' }}>
+      <div className="text-center p-8">
         <div>Loading categories...</div>
       </div>
     );
@@ -132,26 +132,20 @@ export function AdminCategories({ t }: AdminCategoriesProps) {
 
   return (
     <div key="admin-categories-container">
-      <div style={{ marginBottom: '2rem' }}>
-        <h3 style={{ fontSize: '1.125rem', fontWeight: '600', color: '#111827', marginBottom: '1rem' }}>
+      <div className="mb-8">
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">
           {editingCategory ? t('admin.category.editCategory') : t('admin.category.addNew')}
         </h3>
 
-        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '32rem' }}>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-w-lg">
           <div>
-            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', color: '#374151', marginBottom: '0.25rem' }}>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
               {t('admin.category.name')} *
             </label>
             <input
               type="text"
               required
-              style={{
-                width: '100%',
-                padding: '0.5rem',
-                border: '1px solid #d1d5db',
-                borderRadius: '0.375rem',
-                fontSize: '0.875rem'
-              }}
+              className="w-full p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
               placeholder="Enter category name"
               value={formData.Name}
               onChange={(e) => setFormData({ ...formData, Name: e.target.value })}
@@ -159,18 +153,12 @@ export function AdminCategories({ t }: AdminCategoriesProps) {
           </div>
 
           <div>
-            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', color: '#374151', marginBottom: '0.25rem' }}>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
               {t('admin.category.displayName')}
             </label>
             <input
               type="text"
-              style={{
-                width: '100%',
-                padding: '0.5rem',
-                border: '1px solid #d1d5db',
-                borderRadius: '0.375rem',
-                fontSize: '0.875rem'
-              }}
+              className="w-full p-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
               placeholder="Enter display name (optional)"
               value={formData.DisplayName}
               onChange={(e) => setFormData({ ...formData, DisplayName: e.target.value })}
@@ -178,32 +166,26 @@ export function AdminCategories({ t }: AdminCategoriesProps) {
           </div>
 
           <div>
-            <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', color: '#374151' }}>
+            <label className="flex items-center gap-2 text-sm text-gray-700">
               <input
                 type="checkbox"
                 checked={formData.Active}
                 onChange={(e) => setFormData({ ...formData, Active: e.target.checked })}
+                className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
               />
               {t('admin.category.active')}
             </label>
           </div>
 
-          <div style={{ display: 'flex', gap: '0.5rem' }}>
+          <div className="flex gap-2">
             <button
               type="submit"
               disabled={loading}
-              style={{
-                padding: '0.5rem 1rem',
-                border: 'none',
-                borderRadius: '0.375rem',
-                fontSize: '0.875rem',
-                fontWeight: '500',
-                color: 'white',
-                backgroundColor: loading ? '#9ca3af' : '#2563eb',
-                cursor: loading ? 'not-allowed' : 'pointer'
-              }}
+              className={`px-4 py-2 border border-transparent rounded-md text-sm font-medium text-white flex items-center justify-center ${
+                loading ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700 cursor-pointer'
+              }`}
             >
-              <Plus style={{ width: '1rem', height: '1rem', display: 'inline', marginRight: '0.5rem' }} />
+              <Plus className="w-4 h-4 mr-2" />
               {loading ? t('admin.category.savingCategory') : (editingCategory ? t('admin.category.editCategory') : t('admin.category.addNew'))}
             </button>
 
@@ -211,16 +193,7 @@ export function AdminCategories({ t }: AdminCategoriesProps) {
               <button
                 type="button"
                 onClick={handleCancel}
-                style={{
-                  padding: '0.5rem 1rem',
-                  border: '1px solid #d1d5db',
-                  borderRadius: '0.375rem',
-                  fontSize: '0.875rem',
-                  fontWeight: '500',
-                  color: '#374151',
-                  backgroundColor: 'white',
-                  cursor: 'pointer'
-                }}
+                className="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 cursor-pointer"
               >
                 {t('admin.category.cancel')}
               </button>
@@ -230,66 +203,44 @@ export function AdminCategories({ t }: AdminCategoriesProps) {
       </div>
 
       <div>
-        <h3 style={{ fontSize: '1.125rem', fontWeight: '600', color: '#111827', marginBottom: '1rem' }}>
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">
           {t('admin.category.title')} ({categories.length})
         </h3>
 
         {categories.length === 0 ? (
-          <div style={{ textAlign: 'center', padding: '2rem', backgroundColor: '#f9fafb', borderRadius: '0.5rem' }}>
-            <Tag style={{ width: '3rem', height: '3rem', color: '#9ca3af', margin: '0 auto 1rem' }} />
-            <p style={{ color: '#6b7280', fontSize: '0.875rem' }}>{t('admin.category.noCategoriesFound')}</p>
+          <div className="text-center p-8 bg-gray-50 rounded-lg">
+            <Tag className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+            <p className="text-gray-500 text-sm">{t('admin.category.noCategoriesFound')}</p>
           </div>
         ) : (
-          <div style={{ display: 'grid', gap: '0.75rem' }}>
+          <div className="grid gap-3">
             {categories.map((category) => (
               <div
-                key={category.id}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  padding: '1rem',
-                  backgroundColor: 'white',
-                  border: '1px solid #e5e7eb',
-                  borderRadius: '0.5rem'
-                }}
+                key={category.Id}
+                className="flex items-center justify-between p-4 bg-white border border-gray-200 rounded-lg"
               >
-                <div style={{ flex: 1 }}>
-                  <h4 style={{ fontSize: '0.875rem', fontWeight: '600', color: '#111827', marginBottom: '0.25rem' }}>
+                <div className="flex-1">
+                  <h4 className="text-sm font-semibold text-gray-900 mb-1">
                     {category.DisplayName || category.Name}
                   </h4>
-                  <p style={{ fontSize: '0.75rem', color: '#6b7280', margin: 0 }}>
+                  <p className="text-xs text-gray-500 m-0">
                     {category.Name} {!category.Active && '(Inactive)'}
                   </p>
                 </div>
 
-                <div style={{ display: 'flex', gap: '0.5rem' }}>
+                <div className="flex gap-2">
                   <button
                     onClick={() => handleEdit(category)}
-                    style={{
-                      padding: '0.25rem 0.5rem',
-                      border: '1px solid #d1d5db',
-                      borderRadius: '0.25rem',
-                      backgroundColor: 'white',
-                      cursor: 'pointer',
-                      color: '#374151'
-                    }}
+                    className="px-2 py-1 border border-gray-300 rounded bg-white text-gray-700 hover:bg-gray-50 cursor-pointer"
                   >
-                    <Edit2 style={{ width: '1rem', height: '1rem' }} />
+                    <Edit2 className="w-4 h-4" />
                   </button>
 
                   <button
-                    onClick={() => handleDelete(category.id)}
-                    style={{
-                      padding: '0.25rem 0.5rem',
-                      border: '1px solid #d1d5db',
-                      borderRadius: '0.25rem',
-                      backgroundColor: 'white',
-                      cursor: 'pointer',
-                      color: '#dc2626'
-                    }}
+                    onClick={() => handleDelete(category.Id)}
+                    className="px-2 py-1 border border-gray-300 rounded bg-white text-red-600 hover:bg-red-50 cursor-pointer"
                   >
-                    <Trash2 style={{ width: '1rem', height: '1rem' }} />
+                    <Trash2 className="w-4 h-4" />
                   </button>
                 </div>
               </div>

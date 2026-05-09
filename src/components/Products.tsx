@@ -123,7 +123,7 @@ export function Menu() {
   return (
     <section id="menu" className="relative min-h-screen bg-cover bg-center bg-no-repeat bg-fixed w-screen left-0 right-0" style={{ backgroundImage: `url(${mixImage})` }}>
       <div className="absolute inset-0 bg-gradient-to-br from-white/92 to-white/88 z-10"></div>
-      <div className="relative z-20 p-20 max-w-none flex flex-col justify-center">
+      <div className="relative z-20 px-4 py-12 sm:p-8 md:p-20 max-w-none flex flex-col justify-center">
         <div className="text-center mb-12">
           <h2 className="text-[clamp(2rem,5vw,3rem)] font-bold mb-4 text-gray-800">{t('menu.title')}</h2>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
@@ -150,7 +150,7 @@ export function Menu() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredItems.map(item => (
-            <div key={item.id} className="bg-white rounded-lg shadow-md transition-shadow duration-300 hover:shadow-xl">
+            <div key={item.id} className="bg-white rounded-lg shadow-md transition-shadow duration-300 hover:shadow-xl mr-3">
               {item.image && (
                 <div className="h-48 bg-gray-200 rounded-t-lg flex items-center justify-center overflow-hidden">
                   <img
@@ -176,9 +176,9 @@ export function Menu() {
                 </div>
               )}
               <div className="p-6">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-semibold text-gray-800 flex-1">{item.name}</h3>
-                  <span className="text-2xl font-bold text-black ml-4">{item.price}</span>
+                <div className="flex flex-wrap justify-between items-start mb-4 gap-2">
+                  <h3 className="text-xl font-semibold text-gray-800 flex-1 min-w-[120px]">{item.name}</h3>
+                  <span className="text-2xl font-bold text-black">{item.price}</span>
                 </div>
                 <p className="text-gray-500 leading-relaxed">{item.description}</p>
               </div>

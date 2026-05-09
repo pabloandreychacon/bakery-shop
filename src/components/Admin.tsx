@@ -34,58 +34,37 @@ export function Admin() {
 
   if (!isAuthenticated) {
     return (
-      <div style={{ minHeight: '100vh', backgroundColor: '#f9fafb', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '3rem 1rem' }}>
-        <div style={{ maxWidth: '28rem', width: '100%' }}>
-          <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-            <div style={{ margin: '0 auto', height: '3rem', width: '3rem', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%', backgroundColor: '#dbeafe' }}>
-              <Lock style={{ height: '1.5rem', width: '1.5rem', color: '#2563eb' }} />
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-md w-full space-y-8">
+          <div className="text-center">
+            <div className="mx-auto h-12 w-12 flex items-center justify-center rounded-full bg-blue-100">
+              <Lock className="h-6 w-6 text-blue-600" />
             </div>
-            <h2 style={{ marginTop: '1.5rem', textAlign: 'center', fontSize: '1.875rem', fontWeight: '800', color: '#111827' }}>
+            <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
               {t('admin.title')}
             </h2>
           </div>
-          <form onSubmit={handleLogin} style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            <div>
+          <form onSubmit={handleLogin} className="mt-8 space-y-6">
+            <div className="rounded-md shadow-sm -space-y-px">
               <input
                 type="password"
                 required
-                style={{
-                  appearance: 'none',
-                  borderRadius: '0.375rem',
-                  position: 'relative',
-                  width: '100%',
-                  padding: '0.75rem',
-                  border: '1px solid #d1d5db',
-                  color: '#111827',
-                  fontSize: '0.875rem'
-                }}
+                className="appearance-none rounded-md relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 sm:text-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10"
                 placeholder={t('admin.passwordPlaceholder')}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             {error && (
-              <div style={{ color: '#dc2626', fontSize: '0.875rem', textAlign: 'center', marginTop: '0.5rem' }}>{error}</div>
+              <div className="text-red-600 text-sm text-center mt-2">{error}</div>
             )}
-            <div style={{ marginTop: '1rem' }}>
+            <div>
               <button
                 type="submit"
                 disabled={loading}
-                style={{
-                  position: 'relative',
-                  width: '100%',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  padding: '0.5rem 1rem',
-                  border: 'none',
-                  fontSize: '0.875rem',
-                  fontWeight: '500',
-                  borderRadius: '0.375rem',
-                  color: 'white',
-                  backgroundColor: loading ? '#9ca3af' : '#2563eb',
-                  cursor: loading ? 'not-allowed' : 'pointer',
-                  transition: 'background-color 0.2s'
-                }}
+                className={`relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 ${
+                  loading ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700 cursor-pointer'
+                }`}
               >
                 {loading ? t('admin.authenticating') : t('admin.signIn')}
               </button>
@@ -97,66 +76,51 @@ export function Admin() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#f9fafb', paddingTop: '5rem' }}>
-      <div style={{ maxWidth: '80rem', margin: '0 auto', padding: '0 1rem' }}>
-        <div style={{ padding: '2rem 0' }}>
-          <h1 style={{ fontSize: '2.25rem', fontWeight: '700', color: '#111827', marginBottom: '2rem' }}>{t('admin.dashboard')}</h1>
+    <div className="min-h-screen bg-gray-50 pt-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="py-8">
+          <h1 className="text-4xl font-bold text-gray-900 mb-8">{t('admin.dashboard')}</h1>
 
-          <div style={{ backgroundColor: 'white', boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.1)', borderRadius: '0.5rem' }}>
-            <div style={{ borderBottom: '1px solid #e5e7eb' }}>
-              <nav style={{ display: 'flex', marginBottom: 0 }}>
+          <div className="bg-white shadow rounded-lg">
+            <div className="border-b border-gray-200">
+              <nav className="flex flex-col sm:flex-row -mb-px">
                 <button
                   onClick={() => setActiveTab('settings')}
-                  style={{
-                    padding: '1rem 1.5rem',
-                    fontSize: '0.875rem',
-                    fontWeight: '500',
-                    borderBottom: `2px solid ${activeTab === 'settings' ? '#2563eb' : 'transparent'}`,
-                    color: activeTab === 'settings' ? '#2563eb' : '#6b7280',
-                    backgroundColor: 'transparent',
-                    cursor: 'pointer',
-                    transition: 'all 0.2s'
-                  }}
+                  className={`py-4 px-6 text-sm font-medium border-b-2 sm:border-b-2 border-l-4 sm:border-l-0 cursor-pointer transition-all duration-200 ${
+                    activeTab === 'settings'
+                      ? 'border-blue-600 sm:border-b-blue-600 sm:border-l-transparent text-blue-600 bg-blue-50 sm:bg-transparent'
+                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                  } flex items-center`}
                 >
-                  <Settings style={{ width: '1rem', height: '1rem', display: 'inline', marginRight: '0.5rem' }} />
+                  <Settings className="w-4 h-4 mr-2" />
                   {t('admin.settings')}
                 </button>
                 <button
                   onClick={() => setActiveTab('categories')}
-                  style={{
-                    padding: '1rem 1.5rem',
-                    fontSize: '0.875rem',
-                    fontWeight: '500',
-                    borderBottom: `2px solid ${activeTab === 'categories' ? '#2563eb' : 'transparent'}`,
-                    color: activeTab === 'categories' ? '#2563eb' : '#6b7280',
-                    backgroundColor: 'transparent',
-                    cursor: 'pointer',
-                    transition: 'all 0.2s'
-                  }}
+                  className={`py-4 px-6 text-sm font-medium border-b-2 sm:border-b-2 border-l-4 sm:border-l-0 cursor-pointer transition-all duration-200 ${
+                    activeTab === 'categories'
+                      ? 'border-blue-600 sm:border-b-blue-600 sm:border-l-transparent text-blue-600 bg-blue-50 sm:bg-transparent'
+                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                  } flex items-center`}
                 >
-                  <Tag style={{ width: '1rem', height: '1rem', display: 'inline', marginRight: '0.5rem' }} />
+                  <Tag className="w-4 h-4 mr-2" />
                   Categories
                 </button>
                 <button
                   onClick={() => setActiveTab('products')}
-                  style={{
-                    padding: '1rem 1.5rem',
-                    fontSize: '0.875rem',
-                    fontWeight: '500',
-                    borderBottom: `2px solid ${activeTab === 'products' ? '#2563eb' : 'transparent'}`,
-                    color: activeTab === 'products' ? '#2563eb' : '#6b7280',
-                    backgroundColor: 'transparent',
-                    cursor: 'pointer',
-                    transition: 'all 0.2s'
-                  }}
+                  className={`py-4 px-6 text-sm font-medium border-b-2 sm:border-b-2 border-l-4 sm:border-l-0 cursor-pointer transition-all duration-200 ${
+                    activeTab === 'products'
+                      ? 'border-blue-600 sm:border-b-blue-600 sm:border-l-transparent text-blue-600 bg-blue-50 sm:bg-transparent'
+                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                  } flex items-center`}
                 >
-                  <Tag style={{ width: '1rem', height: '1rem', display: 'inline', marginRight: '0.5rem' }} />
+                  <Tag className="w-4 h-4 mr-2" />
                   {t('admin.products')}
                 </button>
               </nav>
             </div>
 
-            <div style={{ padding: '1.5rem' }}>
+            <div className="p-6">
               {activeTab === 'settings' && <AdminSettings t={t} />}
               {activeTab === 'categories' && <AdminCategories t={t} />}
               {activeTab === 'products' && <AdminProducts t={t} />}

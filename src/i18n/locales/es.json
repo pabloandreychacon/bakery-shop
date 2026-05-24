@@ -121,6 +121,7 @@
     "authenticating": "Autenticando...",
     "invalidPassword": "Contraseña inválida",
     "authFailed": "Autenticación fallida",
+    "logout": "Cerrar Sesión",
     "settings": "Configuración",
     "products": "Productos",
     "categories": "Categorías",

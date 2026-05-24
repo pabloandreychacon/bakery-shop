@@ -7,7 +7,7 @@ import { AdminProducts } from './admin/AdminProducts';
 
 export function Admin() {
   const { t } = useTranslation();
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(() => localStorage.getItem('admin_auth') === 'true');
   const [password, setPassword] = useState('');
   const [activeTab, setActiveTab] = useState<'settings' | 'categories' | 'products'>('settings');
   const [loading, setLoading] = useState(false);
@@ -22,10 +22,11 @@ export function Admin() {
       // Simple password check - use "admin" or "12345" or "admin123"
       if (password === 'admin' || password === '12345' || password === 'admin123') {
         setIsAuthenticated(true);
+        localStorage.setItem('admin_auth', 'true');
       } else {
         setError(t('admin.invalidPassword'));
       }
-    } catch (err) {
+    } catch {
       setError(t('admin.authFailed'));
     } finally {
       setLoading(false);
@@ -79,7 +80,15 @@ export function Admin() {
     <div className="min-h-screen bg-gray-50 pt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="py-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-8">{t('admin.dashboard')}</h1>
+          <div className="flex justify-between items-center mb-8">
+            <h1 className="text-4xl font-bold text-gray-900">{t('admin.dashboard')}</h1>
+            <button
+              onClick={() => { setIsAuthenticated(false); localStorage.removeItem('admin_auth'); }}
+              className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors cursor-pointer"
+            >
+              {t('admin.logout')}
+            </button>
+          </div>
 
           <div className="bg-white shadow rounded-lg">
             <div className="border-b border-gray-200">

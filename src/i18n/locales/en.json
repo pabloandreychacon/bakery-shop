@@ -121,6 +121,7 @@
     "authenticating": "Authenticating...",
     "invalidPassword": "Invalid password",
     "authFailed": "Authentication failed",
+    "logout": "Logout",
     "settings": "Settings",
     "products": "Products",
     "categories": "Categories",
